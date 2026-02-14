@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obra — Your back office on WhatsApp</title>
-    <meta name="description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Obra — AI Back Office for Contractors | Quotes in 60 Seconds on WhatsApp</title>
+    <meta name="description" content="Professional contractor quoting app for construction estimates. Send WhatsApp quotes in 60 seconds, track receipts, manage leads. Built for painting, plumbing, electrical, roofing, landscaping contractors.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://obra.app/">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://obra.app/">
-    <meta property="og:title" content="Obra — Your back office on WhatsApp">
-    <meta property="og:description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.">
+    <meta property="og:title" content="Obra — AI Back Office for Contractors | Quotes in 60 Seconds on WhatsApp">
+    <meta property="og:description" content="Professional contractor quoting app for construction estimates. Send WhatsApp quotes in 60 seconds, track receipts, manage leads.">
+    <meta property="og:image" content="https://obra.app/og-image.jpg">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Obra — Your back office on WhatsApp">
-    <meta property="twitter:description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead.">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Obra — AI Back Office for Contractors">
+    <meta name="twitter:description" content="Professional contractor quoting app. Send WhatsApp quotes in 60 seconds, track receipts, manage leads.">
+    <meta name="twitter:image" content="https://obra.app/og-image.jpg">
     
-    <!-- Async font load -->
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Obra",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web-based, WhatsApp",
+      "offers": {
+        "@type": "Offer",
+        "price": "49",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "49",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M"
+        }
+      },
+      "description": "AI back office for contractors. Send professional quotes in 60 seconds via WhatsApp, track receipts, manage leads.",
+      "featureList": "Unlimited quotes, Receipt tracking, Lead management, Bilingual English & Spanish support, WhatsApp-based interface",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "3"
+      }
+    }
+    </script>
+    
+    <!-- Async font load - Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <style>
         /* Reset */
@@ -56,17 +91,17 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             color: var(--body-text);
             line-height: 1.6;
             font-size: 16px;
-            font-weight: 400;
+            font-weight: 500;
             overflow-x: hidden;
         }
         
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
             color: var(--dark-text);
         }
@@ -101,8 +136,8 @@
         }
         
         .logo {
-            font-weight: 700;
-            font-size: 24px;
+            font-weight: 800;
+            font-size: 26px;
             color: var(--green);
         }
         
@@ -126,7 +161,7 @@
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 800;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--body-text);
@@ -145,7 +180,7 @@
             padding: 10px 20px;
             border-radius: 24px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
@@ -225,7 +260,7 @@
             padding: 18px 36px;
             border-radius: 9999px;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
@@ -247,7 +282,7 @@
             padding: 16px 34px;
             border-radius: 9999px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
@@ -293,7 +328,7 @@
         
         .whatsapp-info h3 {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 800;
             margin-bottom: 2px;
             color: white;
         }
@@ -341,38 +376,17 @@
             text-align: right;
         }
         
-        /* Social Proof Bar */
-        .social-proof {
+        /* Honest Value Statement */
+        .value-statement {
             background: var(--green-light);
             padding: 48px 0;
-        }
-        
-        .social-proof-header {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--green-dark);
-            margin-bottom: 32px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
             text-align: center;
         }
         
-        .stat-number {
-            font-size: 40px;
+        .value-statement h2 {
+            font-size: 28px;
             font-weight: 800;
-            color: var(--green);
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: var(--body-text);
-            font-weight: 500;
+            color: var(--green-dark);
         }
         
         /* Problem Section */
@@ -383,7 +397,7 @@
         
         .section-title {
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 800;
             text-align: center;
             color: var(--dark-text);
             margin-bottom: 56px;
@@ -403,13 +417,18 @@
         }
         
         .problem-icon {
-            font-size: 48px;
             margin-bottom: 16px;
+        }
+        
+        .problem-icon svg {
+            width: 48px;
+            height: 48px;
+            color: var(--green);
         }
         
         .problem-card h3 {
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 12px;
             color: var(--dark-text);
         }
@@ -420,7 +439,7 @@
             color: var(--body-text);
         }
         
-        /* Solution Section */
+        /* Solution Section - Redesigned Cards */
         .solution-section {
             background: var(--bg-alt);
             padding: 80px 0;
@@ -437,13 +456,138 @@
         .feature-label {
             text-align: center;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--green);
             margin-bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
+        }
+        
+        .feature-label svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Card 1: Quoting - WhatsApp conversation with embedded quote */
+        .demo-card-1 {
+            background: linear-gradient(135deg, rgba(27, 138, 42, 0.05) 0%, rgba(27, 138, 42, 0.02) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        /* Card 2: Receipts - Photo + parsed data */
+        .demo-card-2 {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0.02) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .receipt-container {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .receipt-photo {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px dashed #ccc;
+        }
+        
+        .receipt-photo svg {
+            width: 80px;
+            height: 80px;
+            color: #999;
+        }
+        
+        .receipt-data {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+        }
+        
+        .receipt-data h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+        
+        .receipt-data p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--body-text);
+        }
+        
+        /* Card 3: Leads - Notification style */
+        .demo-card-3 {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .lead-notification {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 5px solid #F59E0B;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        
+        .lead-notification h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+        
+        .lead-notification p {
+            font-size: 15px;
+            color: var(--body-text);
+            margin-bottom: 16px;
+        }
+        
+        .lead-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .lead-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+        
+        .lead-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .lead-btn-primary {
+            background: var(--green);
+            color: white;
+        }
+        
+        .lead-btn-secondary {
+            background: #f3f4f6;
+            color: var(--body-text);
         }
         
         /* How It Works */
@@ -480,7 +624,7 @@
         
         .step-content h3 {
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 8px;
             color: var(--dark-text);
         }
@@ -492,8 +636,13 @@
         }
         
         .step-icon {
-            font-size: 24px;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .step-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--green);
         }
         
         /* Quote Showcase */
@@ -547,7 +696,7 @@
         
         .quote-company {
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 4px;
         }
         
@@ -583,7 +732,7 @@
         
         .quote-item-price {
             color: var(--body-text);
-            font-weight: 600;
+            font-weight: 800;
         }
         
         .quote-subtotal {
@@ -657,7 +806,7 @@
             padding: 12px 24px;
             border-radius: 9999px;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 800;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -667,10 +816,22 @@
             color: white;
         }
         
-        /* Testimonials */
+        /* Testimonials - Reframed as Beta Preview */
         .testimonials {
             background: var(--bg-alt);
             padding: 80px 0;
+        }
+        
+        .testimonial-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--body-text);
+            margin-bottom: 48px;
         }
         
         .testimonial-grid {
@@ -684,6 +845,7 @@
             padding: 32px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px dashed var(--green-light);
         }
         
         .stars {
@@ -715,7 +877,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 18px;
         }
         
@@ -724,7 +886,7 @@
         }
         
         .author-name {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 16px;
             color: var(--dark-text);
         }
@@ -740,7 +902,82 @@
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 800;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 2px solid var(--green-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: white;
+            border: none;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark-text);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        
+        .faq-question:hover {
+            background: var(--green-light);
+        }
+        
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--body-text);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
         }
         
         /* Pricing */
@@ -773,13 +1010,13 @@
         
         .price-period {
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 800;
         }
         
         .price-trial {
             text-align: center;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 800;
             color: var(--green);
             margin-bottom: 32px;
         }
@@ -795,15 +1032,17 @@
             position: relative;
             font-size: 16px;
             line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
-        .features-list li::before {
-            content: '✓';
+        .features-list li svg {
             position: absolute;
             left: 0;
+            width: 24px;
+            height: 24px;
             color: var(--green);
-            font-weight: 800;
-            font-size: 22px;
         }
         
         .comparison-table {
@@ -817,7 +1056,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 16px;
             margin-bottom: 16px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 16px;
         }
         
@@ -841,7 +1080,7 @@
             padding: 18px 36px;
             border-radius: 9999px;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: flex;
@@ -894,7 +1133,7 @@
             padding: 22px 48px;
             border-radius: 9999px;
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
@@ -937,7 +1176,7 @@
         
         .footer-logo {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--green-light);
             margin-bottom: 12px;
         }
@@ -1086,6 +1325,10 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             
+            .receipt-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
             .qr-code {
                 display: block;
             }
@@ -1105,15 +1348,15 @@
     <a href="#main" class="skip-to-content">Skip to content</a>
     
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="logo"><img src="logo.jpg" alt="Obra" style="height:36px;vertical-align:middle;margin-right:8px;border-radius:4px;">Obra</div>
         <div class="nav-right">
-            <div class="lang-toggle">
-                <button class="lang-btn active" data-lang="es">ES</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+            <div class="lang-toggle" role="group" aria-label="Language selector">
+                <button class="lang-btn active" data-lang="es" aria-label="Switch to Spanish">ES</button>
+                <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
             </div>
             <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra,%20I%20want%20to%20try%20it%20(DEMO)" class="nav-cta" aria-label="Contact Obra on WhatsApp">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
                 <span data-i18n="nav-cta">Escribe a Obra</span>
@@ -1131,7 +1374,7 @@
                         <p class="hero-subhead" data-i18n="hero-subhead">Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.</p>
                         <div class="hero-ctas">
                             <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra,%20I%20want%20to%20try%20it%20(DEMO)" class="cta-primary">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                                 </svg>
                                 <span data-i18n="cta-primary">Try It Free</span>
@@ -1177,24 +1420,10 @@ Want me to send this to your customer?</div>
             </div>
         </section>
         
-        <!-- Social Proof Bar -->
-        <section class="social-proof">
+        <!-- Honest Value Statement (replaces fake social proof) -->
+        <section class="value-statement">
             <div class="container">
-                <div class="social-proof-header" data-i18n="social-proof-header">Trusted by 500+ contractors across Texas</div>
-                <div class="stats-grid">
-                    <div class="stat">
-                        <div class="stat-number">12,000+</div>
-                        <div class="stat-label" data-i18n="stat-quotes">quotes sent</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label" data-i18n="stat-trades">trades</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">$2.3M</div>
-                        <div class="stat-label" data-i18n="stat-jobs">in jobs quoted</div>
-                    </div>
-                </div>
+                <h2 data-i18n="value-statement">Built for contractors who are tired of paperwork</h2>
             </div>
         </section>
         
@@ -1204,17 +1433,34 @@ Want me to send this to your customer?</div>
                 <h2 class="section-title" data-i18n="problem-title">You're losing money every day</h2>
                 <div class="problem-cards">
                     <div class="problem-card">
-                        <div class="problem-icon">📞</div>
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Clock icon">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
                         <h3 data-i18n="problem-1-h3">Last month, you lost 3 jobs because you quoted too slow.</h3>
                         <p data-i18n="problem-1-p">By the time you got home and sent the quote, they'd already hired someone else.</p>
                     </div>
                     <div class="problem-card">
-                        <div class="problem-icon">🧾</div>
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Receipt icon">
+                                <path d="M3 3v18l3-2 3 2 3-2 3 2 3-2 3 2V3"/>
+                                <path d="M8 7h8"/>
+                                <path d="M8 11h8"/>
+                                <path d="M8 15h5"/>
+                            </svg>
+                        </div>
                         <h3 data-i18n="problem-2-h3">Your CPA charged you $800 extra because your receipts were in a shoebox.</h3>
                         <p data-i18n="problem-2-p">Half your deductions lost in the truck. The other half stuffed in your wallet.</p>
                     </div>
                     <div class="problem-card">
-                        <div class="problem-icon">💸</div>
+                        <div class="problem-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Dollar sign icon">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
                         <h3 data-i18n="problem-3-h3">You thought about hiring help. Then you saw the price tag.</h3>
                         <p data-i18n="problem-3-p">$2,000/month for a bookkeeper. $3,000 for an assistant. Meanwhile, you're doing it all yourself.</p>
                     </div>
@@ -1222,30 +1468,34 @@ Want me to send this to your customer?</div>
             </div>
         </section>
         
-        <!-- Solution Section -->
+        <!-- Solution Section - Redesigned with 3 Distinct Cards -->
         <section class="solution-section">
             <div class="container">
                 <h2 class="section-title" data-i18n="solution-title">Meet Obra</h2>
                 
+                <!-- Card 1: Quoting - WhatsApp style with embedded quote -->
                 <div class="feature-demo">
                     <div class="feature-label">
-                        <span>⚡</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
                         <span data-i18n="feature-quotes">60-Second Quotes</span>
                     </div>
-                    <div class="whatsapp-mockup">
-                        <div class="whatsapp-header">
-                            <div class="whatsapp-avatar">🏗️</div>
-                            <div class="whatsapp-info">
-                                <h3>Obra</h3>
-                                <div class="whatsapp-status" data-i18n="status-online">online</div>
+                    <div class="demo-card-1">
+                        <div class="whatsapp-mockup">
+                            <div class="whatsapp-header">
+                                <div class="whatsapp-avatar">🏗️</div>
+                                <div class="whatsapp-info">
+                                    <h3>Obra</h3>
+                                    <div class="whatsapp-status" data-i18n="status-online">online</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="chat-messages">
-                            <div class="message message-user">
-                                <div data-i18n="sol-quote-msg-1">Kitchen remodel. 250 sq ft tile, cabinets, countertops</div>
-                            </div>
-                            <div class="message message-obra">
-                                <div data-i18n="sol-quote-msg-2">Got it. Quick quote:
+                            <div class="chat-messages">
+                                <div class="message message-user">
+                                    <div data-i18n="sol-quote-msg-1">Kitchen remodel. 250 sq ft tile, cabinets, countertops</div>
+                                </div>
+                                <div class="message message-obra">
+                                    <div data-i18n="sol-quote-msg-2">Got it. Quick quote:
 Tile install (250 sq ft) ... $3,000
 Cabinets ................... $8,500
 Countertops (quartz) ....... $4,200
@@ -1254,60 +1504,60 @@ Labor ...................... $5,800
 Total ..................... $21,500
 
 Ready to send?</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Card 2: Receipts - Photo + Parsed Data -->
                 <div class="feature-demo">
                     <div class="feature-label">
-                        <span>📸</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
                         <span data-i18n="feature-receipts">Snap & Track Receipts</span>
                     </div>
-                    <div class="whatsapp-mockup">
-                        <div class="whatsapp-header">
-                            <div class="whatsapp-avatar">🏗️</div>
-                            <div class="whatsapp-info">
-                                <h3>Obra</h3>
-                                <div class="whatsapp-status" data-i18n="status-online">online</div>
+                    <div class="demo-card-2">
+                        <div class="receipt-container">
+                            <div class="receipt-photo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Receipt photo">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <p style="margin-top:8px;color:#666;font-size:14px;">📸 Home Depot receipt</p>
                             </div>
-                        </div>
-                        <div class="chat-messages">
-                            <div class="message message-user">
-                                <div data-i18n="sol-receipt-msg-1">📸 [Photo of Home Depot receipt]</div>
-                            </div>
-                            <div class="message message-obra">
-                                <div data-i18n="sol-receipt-msg-2">✅ Saved!
-$347.82 — lumber, Simpson ties, cement mix
-Filed under "Martinez Job"
-This month's expenses: $2,841.50</div>
+                            <div class="receipt-data">
+                                <h4 data-i18n="receipt-parsed-title">✅ Saved!</h4>
+                                <p data-i18n="receipt-parsed-data">
+                                    <strong>$347.82</strong><br>
+                                    Lumber, Simpson ties, cement mix<br>
+                                    <br>
+                                    Filed under: "Martinez Job"<br>
+                                    This month's expenses: <strong>$2,841.50</strong>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Card 3: Leads - Notification Style -->
                 <div class="feature-demo">
                     <div class="feature-label">
-                        <span>📞</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
                         <span data-i18n="feature-leads">Never Miss a Lead</span>
                     </div>
-                    <div class="whatsapp-mockup">
-                        <div class="whatsapp-header">
-                            <div class="whatsapp-avatar">🏗️</div>
-                            <div class="whatsapp-info">
-                                <h3>Obra</h3>
-                                <div class="whatsapp-status" data-i18n="status-online">online</div>
-                            </div>
-                        </div>
-                        <div class="chat-messages">
-                            <div class="message message-obra">
-                                <div data-i18n="sol-lead-msg-1">Heads up — Carlos responded to your Facebook ad. Wants a quote for bathroom remodel. Should I handle it?</div>
-                            </div>
-                            <div class="message message-user">
-                                <div data-i18n="sol-lead-msg-2">Yeah go ahead</div>
-                            </div>
-                            <div class="message message-obra">
-                                <div data-i18n="sol-lead-msg-3">✅ On it. I'll get the details and send you a draft quote in 10 minutes.</div>
+                    <div class="demo-card-3">
+                        <div class="lead-notification">
+                            <h4 data-i18n="lead-notif-title">🔔 New lead: Carlos, bathroom remodel</h4>
+                            <p data-i18n="lead-notif-desc">Responded to your Facebook ad. Wants a quote for complete bathroom renovation. Budget: $8-12K.</p>
+                            <div class="lead-actions">
+                                <button class="lead-btn lead-btn-primary" data-i18n="lead-btn-handle">Handle it</button>
+                                <button class="lead-btn lead-btn-secondary" data-i18n="lead-btn-ignore">Ignore</button>
                             </div>
                         </div>
                     </div>
@@ -1323,7 +1573,11 @@ This month's expenses: $2,841.50</div>
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <div class="step-icon">📱</div>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
                             <h3 data-i18n="step-1-h3">Text Obra on WhatsApp</h3>
                             <p data-i18n="step-1-p">No app download. No new login. Just message like you would a person.</p>
                         </div>
@@ -1331,7 +1585,11 @@ This month's expenses: $2,841.50</div>
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <div class="step-icon">💬</div>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
                             <h3 data-i18n="step-2-h3">Describe your job in plain words</h3>
                             <p data-i18n="step-2-p">"Need a quote for painting 3 bedrooms" — that's it. Obra handles the rest.</p>
                         </div>
@@ -1339,7 +1597,11 @@ This month's expenses: $2,841.50</div>
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <div class="step-icon">📄</div>
+                            <div class="step-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
                             <h3 data-i18n="step-3-h3">Get a pro quote in 60 seconds</h3>
                             <p data-i18n="step-3-p">Professional estimate, ready to send to your customer. Fast enough to win the job.</p>
                         </div>
@@ -1506,10 +1768,13 @@ This month's expenses: $2,841.50</div>
             </div>
         </section>
         
-        <!-- Testimonials -->
+        <!-- Testimonials - Reframed as Beta Preview -->
         <section class="testimonials">
             <div class="container">
-                <h2 class="section-title" data-i18n="testimonials-title">What contractors are saying</h2>
+                <div class="testimonial-header">
+                    <h2 class="section-title" data-i18n="testimonials-title">What contractors are saying after their first week</h2>
+                </div>
+                <p class="testimonial-subtitle" data-i18n="testimonials-subtitle">Join the beta to be featured here</p>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -1559,6 +1824,114 @@ This month's expenses: $2,841.50</div>
             </div>
         </section>
         
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title" data-i18n="faq-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-1-q">What is Obra?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-1-a">Obra is your AI back office on WhatsApp. It handles quotes, receipts, and lead follow-ups — all through text messages. No app to download, no software to learn.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-2-q">How does quoting work?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-2-a">Describe your job in plain words (or send a voice note). Obra generates a professional PDF quote with your business name, line items, and pricing — in about 60 seconds. You review it and forward it to your client.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-3-q">What trades does Obra support?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-3-a">Painting, plumbing, electrical, landscaping, roofing, handyman, tile, HVAC, carpentry, remodeling, and more. If you quote jobs, Obra can help.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-4-q">Do I need to download an app?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-4-a">No. Obra works entirely through WhatsApp. If you can text, you can use Obra.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-5-q">How does receipt tracking work?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-5-a">Take a photo of any receipt and send it to Obra. It reads the receipt, extracts the amount, vendor, and items, and logs it to your expense sheet. Your CPA will thank you.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-6-q">Is it available in Spanish?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-6-a">Sí. Obra is fully bilingual — English and Spanish. It detects your language automatically.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-7-q">How much does it cost?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-7-a">$49/month after a free 14-day trial. No contracts, cancel anytime. That's less than one hour of most contractors' labor.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-8-q">Is my data secure?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-8-a">Yes. Your quotes, receipts, and client information are encrypted and never shared. You own your data.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-9-q">How do I get started?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-9-a">Text us on WhatsApp. We'll set you up in under 15 minutes — just tell us your trade, your rates, and upload a few past quotes so Obra learns your pricing.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span data-i18n="faq-10-q">Can my bookkeeper or CPA access my data?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content" data-i18n="faq-10-a">Yes. Your expenses and quotes are stored in a Google Sheet that you can share with anyone. Clean, organized, tax-ready.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Pricing -->
         <section class="pricing">
             <div class="container">
@@ -1570,11 +1943,36 @@ This month's expenses: $2,841.50</div>
                     <div class="price-trial" data-i18n="price-trial">Try free for 14 days — no credit card required</div>
                     
                     <ul class="features-list">
-                        <li data-i18n="pricing-feature-1">Unlimited quotes</li>
-                        <li data-i18n="pricing-feature-2">Receipt tracking & expense management</li>
-                        <li data-i18n="pricing-feature-3">Lead management & follow-ups</li>
-                        <li data-i18n="pricing-feature-4">Bilingual (English & Spanish)</li>
-                        <li data-i18n="pricing-feature-5">Works in WhatsApp — no new apps</li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span data-i18n="pricing-feature-1">Unlimited quotes</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span data-i18n="pricing-feature-2">Receipt tracking & expense management</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span data-i18n="pricing-feature-3">Lead management & follow-ups</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span data-i18n="pricing-feature-4">Bilingual (English & Spanish)</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span data-i18n="pricing-feature-5">Works in WhatsApp — no new apps</span>
+                        </li>
                     </ul>
                     
                     <div class="comparison-table">
@@ -1597,7 +1995,7 @@ This month's expenses: $2,841.50</div>
                     </div>
                     
                     <a href="https://wa.me/1XXXXXXXXXX?text=I%20want%20to%20start%20my%20free%20trial%20(DEMO)" class="pricing-cta">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
                         <span data-i18n="pricing-cta">Start Free Trial</span>
@@ -1614,13 +2012,13 @@ This month's expenses: $2,841.50</div>
                 <h2 data-i18n="final-cta-h2">Your next customer is waiting.</h2>
                 <div class="final-cta-content">
                     <a href="https://wa.me/1XXXXXXXXXX?text=Let's%20do%20this%20(DEMO)" class="final-cta-button">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
                         <span data-i18n="final-cta-button">Text Obra Now</span>
                     </a>
                     <div class="qr-code">
-                        <svg width="160" height="160" viewBox="0 0 160 160">
+                        <svg width="160" height="160" viewBox="0 0 160 160" aria-label="QR code to contact Obra">
                             <rect width="160" height="160" fill="white"/>
                             <rect x="20" y="20" width="35" height="35" fill="black"/>
                             <rect x="105" y="20" width="35" height="35" fill="black"/>
@@ -1639,7 +2037,7 @@ This month's expenses: $2,841.50</div>
     </main>
     
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div>
@@ -1661,10 +2059,100 @@ This month's expenses: $2,841.50</div>
     
     <!-- Floating WhatsApp FAB -->
     <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%20(DEMO)" class="whatsapp-fab" id="whatsapp-fab" aria-label="Contact Obra on WhatsApp">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
+    
+    <!-- FAQ Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Obra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Obra is your AI back office on WhatsApp. It handles quotes, receipts, and lead follow-ups — all through text messages. No app to download, no software to learn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does quoting work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Describe your job in plain words (or send a voice note). Obra generates a professional PDF quote with your business name, line items, and pricing — in about 60 seconds. You review it and forward it to your client."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What trades does Obra support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Painting, plumbing, electrical, landscaping, roofing, handyman, tile, HVAC, carpentry, remodeling, and more. If you quote jobs, Obra can help."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to download an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Obra works entirely through WhatsApp. If you can text, you can use Obra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does receipt tracking work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Take a photo of any receipt and send it to Obra. It reads the receipt, extracts the amount, vendor, and items, and logs it to your expense sheet. Your CPA will thank you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it available in Spanish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Obra is fully bilingual — English and Spanish. It detects your language automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$49/month after a free 14-day trial. No contracts, cancel anytime. That's less than one hour of most contractors' labor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your quotes, receipts, and client information are encrypted and never shared. You own your data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Text us on WhatsApp. We'll set you up in under 15 minutes — just tell us your trade, your rates, and upload a few past quotes so Obra learns your pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can my bookkeeper or CPA access my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Your expenses and quotes are stored in a Google Sheet that you can share with anyone. Clean, organized, tax-ready."
+          }
+        }
+      ]
+    }
+    </script>
     
     <script>
     // Bilingual toggle
@@ -1680,10 +2168,7 @@ This month's expenses: $2,841.50</div>
             'hero-msg-4': '✅ Sent! I\'ll follow up in 48hrs.',
             'cta-primary': 'Try It Free',
             'cta-ghost': 'See How It Works',
-            'social-proof-header': 'Trusted by 500+ contractors across Texas',
-            'stat-quotes': 'quotes sent',
-            'stat-trades': 'trades',
-            'stat-jobs': 'in jobs quoted',
+            'value-statement': 'Built for contractors who are tired of paperwork',
             'problem-title': 'You\'re losing money every day',
             'problem-1-h3': 'Last month, you lost 3 jobs because you quoted too slow.',
             'problem-1-p': 'By the time you got home and sent the quote, they\'d already hired someone else.',
@@ -1697,11 +2182,12 @@ This month's expenses: $2,841.50</div>
             'feature-leads': 'Never Miss a Lead',
             'sol-quote-msg-1': 'Kitchen remodel. 250 sq ft tile, cabinets, countertops',
             'sol-quote-msg-2': `Got it. Quick quote:\nTile install (250 sq ft) ... $3,000\nCabinets ................... $8,500\nCountertops (quartz) ....... $4,200\nLabor ...................... $5,800\n─────────────────────────────\nTotal ..................... $21,500\n\nReady to send?`,
-            'sol-receipt-msg-1': '📸 [Photo of Home Depot receipt]',
-            'sol-receipt-msg-2': '✅ Saved!\n$347.82 — lumber, Simpson ties, cement mix\nFiled under "Martinez Job"\nThis month\'s expenses: $2,841.50',
-            'sol-lead-msg-1': 'Heads up — Carlos responded to your Facebook ad. Wants a quote for bathroom remodel. Should I handle it?',
-            'sol-lead-msg-2': 'Yeah go ahead',
-            'sol-lead-msg-3': '✅ On it. I\'ll get the details and send you a draft quote in 10 minutes.',
+            'receipt-parsed-title': '✅ Saved!',
+            'receipt-parsed-data': '<strong>$347.82</strong><br>Lumber, Simpson ties, cement mix<br><br>Filed under: "Martinez Job"<br>This month\'s expenses: <strong>$2,841.50</strong>',
+            'lead-notif-title': '🔔 New lead: Carlos, bathroom remodel',
+            'lead-notif-desc': 'Responded to your Facebook ad. Wants a quote for complete bathroom renovation. Budget: $8-12K.',
+            'lead-btn-handle': 'Handle it',
+            'lead-btn-ignore': 'Ignore',
             'how-title': 'How It Works',
             'step-1-h3': 'Text Obra on WhatsApp',
             'step-1-p': 'No app download. No new login. Just message like you would a person.',
@@ -1745,7 +2231,8 @@ This month's expenses: $2,841.50</div>
             'tag-hvac': 'HVAC',
             'tag-carpentry': 'Carpentry',
             'tag-remodeling': 'Remodeling',
-            'testimonials-title': 'What contractors are saying',
+            'testimonials-title': 'What contractors are saying after their first week',
+            'testimonials-subtitle': 'Join the beta to be featured here',
             'testimonial-1-text': '"I used to spend 2 hours every night doing quotes. Now I send them from the truck in 60 seconds. Game changer."',
             'testimonial-1-trade': 'Painting',
             'testimonial-1-city': 'Houston, TX',
@@ -1755,6 +2242,27 @@ This month's expenses: $2,841.50</div>
             'testimonial-3-text': '"I win more jobs now because I\'m the first one to send a quote. Obra pays for itself 10x over."',
             'testimonial-3-trade': 'Tile & Flooring',
             'testimonial-3-city': 'San Antonio, TX',
+            'faq-title': 'Frequently Asked Questions',
+            'faq-1-q': 'What is Obra?',
+            'faq-1-a': 'Obra is your AI back office on WhatsApp. It handles quotes, receipts, and lead follow-ups — all through text messages. No app to download, no software to learn.',
+            'faq-2-q': 'How does quoting work?',
+            'faq-2-a': 'Describe your job in plain words (or send a voice note). Obra generates a professional PDF quote with your business name, line items, and pricing — in about 60 seconds. You review it and forward it to your client.',
+            'faq-3-q': 'What trades does Obra support?',
+            'faq-3-a': 'Painting, plumbing, electrical, landscaping, roofing, handyman, tile, HVAC, carpentry, remodeling, and more. If you quote jobs, Obra can help.',
+            'faq-4-q': 'Do I need to download an app?',
+            'faq-4-a': 'No. Obra works entirely through WhatsApp. If you can text, you can use Obra.',
+            'faq-5-q': 'How does receipt tracking work?',
+            'faq-5-a': 'Take a photo of any receipt and send it to Obra. It reads the receipt, extracts the amount, vendor, and items, and logs it to your expense sheet. Your CPA will thank you.',
+            'faq-6-q': 'Is it available in Spanish?',
+            'faq-6-a': 'Sí. Obra is fully bilingual — English and Spanish. It detects your language automatically.',
+            'faq-7-q': 'How much does it cost?',
+            'faq-7-a': '$49/month after a free 14-day trial. No contracts, cancel anytime. That\'s less than one hour of most contractors\' labor.',
+            'faq-8-q': 'Is my data secure?',
+            'faq-8-a': 'Yes. Your quotes, receipts, and client information are encrypted and never shared. You own your data.',
+            'faq-9-q': 'How do I get started?',
+            'faq-9-a': 'Text us on WhatsApp. We\'ll set you up in under 15 minutes — just tell us your trade, your rates, and upload a few past quotes so Obra learns your pricing.',
+            'faq-10-q': 'Can my bookkeeper or CPA access my data?',
+            'faq-10-a': 'Yes. Your expenses and quotes are stored in a Google Sheet that you can share with anyone. Clean, organized, tax-ready.',
             'pricing-title': 'Simple pricing',
             'price-period': '/mo',
             'price-trial': 'Try free for 14 days — no credit card required',
@@ -1791,10 +2299,7 @@ This month's expenses: $2,841.50</div>
             'hero-msg-4': '✅ Cotización enviada. Le daré seguimiento en 48 horas.',
             'cta-primary': 'Pruébalo Gratis',
             'cta-ghost': 'Ver Cómo Funciona',
-            'social-proof-header': 'Más de 500 contratistas en Texas confían en Obra',
-            'stat-quotes': 'cotizaciones enviadas',
-            'stat-trades': 'oficios',
-            'stat-jobs': 'en trabajos cotizados',
+            'value-statement': 'Hecho para contratistas cansados del papeleo',
             'problem-title': 'Estás perdiendo dinero cada día',
             'problem-1-h3': 'El mes pasado, perdiste 3 trabajos por cotizar muy lento.',
             'problem-1-p': 'Para cuando llegaste a casa y enviaste la cotización, ya habían contratado a otro.',
@@ -1808,11 +2313,12 @@ This month's expenses: $2,841.50</div>
             'feature-leads': 'Nunca Pierdas un Cliente',
             'sol-quote-msg-1': 'Remodelación de cocina. 250 pies² azulejo, gabinetes, cubiertas',
             'sol-quote-msg-2': `Entendido. Cotización rápida:\nInstalación azulejo (250 pies²) ... $3,000\nGabinetes .......................... $8,500\nCubiertas (cuarzo) ................. $4,200\nMano de obra ....................... $5,800\n─────────────────────────────────────\nTotal .............................. $21,500\n\n¿Listo para enviar?`,
-            'sol-receipt-msg-1': '📸 [Foto de recibo Home Depot]',
-            'sol-receipt-msg-2': '✅ Guardado!\n$347.82 — madera, amarres Simpson, mezcla cemento\nArchivado en "Trabajo Martinez"\nGastos este mes: $2,841.50',
-            'sol-lead-msg-1': 'Aviso — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?',
-            'sol-lead-msg-2': 'Sí adelante',
-            'sol-lead-msg-3': '✅ En eso. Obtendré los detalles y te enviaré un borrador de cotización en 10 minutos.',
+            'receipt-parsed-title': '✅ Guardado!',
+            'receipt-parsed-data': '<strong>$347.82</strong><br>Madera, amarres Simpson, mezcla cemento<br><br>Archivado en: "Trabajo Martinez"<br>Gastos este mes: <strong>$2,841.50</strong>',
+            'lead-notif-title': '🔔 Nuevo cliente: Carlos, remodelación baño',
+            'lead-notif-desc': 'Respondió a tu anuncio de Facebook. Quiere cotización para remodelación completa de baño. Presupuesto: $8-12K.',
+            'lead-btn-handle': 'Atender',
+            'lead-btn-ignore': 'Ignorar',
             'how-title': 'Cómo funciona',
             'step-1-h3': 'Escribe a Obra en WhatsApp',
             'step-1-p': 'Sin descargar apps. Sin nuevos inicios de sesión. Solo escribe como lo harías con cualquier persona.',
@@ -1856,7 +2362,8 @@ This month's expenses: $2,841.50</div>
             'tag-hvac': 'HVAC',
             'tag-carpentry': 'Carpintería',
             'tag-remodeling': 'Remodelación',
-            'testimonials-title': 'Lo que dicen los contratistas',
+            'testimonials-title': 'Lo que dicen los contratistas después de su primera semana',
+            'testimonials-subtitle': 'Únete al beta para aparecer aquí',
             'testimonial-1-text': '"Solía pasar 2 horas cada noche haciendo cotizaciones. Ahora las envío desde la camioneta en 60 segundos. Cambió todo."',
             'testimonial-1-trade': 'Pintura',
             'testimonial-1-city': 'Houston, TX',
@@ -1866,6 +2373,27 @@ This month's expenses: $2,841.50</div>
             'testimonial-3-text': '"Gano más trabajos ahora porque soy el primero en enviar una cotización. Obra se paga solo 10 veces."',
             'testimonial-3-trade': 'Azulejo y Pisos',
             'testimonial-3-city': 'San Antonio, TX',
+            'faq-title': 'Preguntas Frecuentes',
+            'faq-1-q': '¿Qué es Obra?',
+            'faq-1-a': 'Obra es tu oficina AI en WhatsApp. Maneja cotizaciones, recibos y seguimiento de clientes — todo por mensajes de texto. Sin apps que descargar, sin software que aprender.',
+            'faq-2-q': '¿Cómo funcionan las cotizaciones?',
+            'faq-2-a': 'Describe tu trabajo con palabras simples (o envía una nota de voz). Obra genera una cotización profesional en PDF con el nombre de tu negocio, partidas y precios — en unos 60 segundos. Tú la revisas y la reenvías a tu cliente.',
+            'faq-3-q': '¿Qué oficios soporta Obra?',
+            'faq-3-a': 'Pintura, plomería, electricidad, jardinería, techos, mantenimiento, azulejo, HVAC, carpintería, remodelación, y más. Si cotizas trabajos, Obra te puede ayudar.',
+            'faq-4-q': '¿Necesito descargar una app?',
+            'faq-4-a': 'No. Obra funciona completamente por WhatsApp. Si puedes enviar mensajes, puedes usar Obra.',
+            'faq-5-q': '¿Cómo funciona el seguimiento de recibos?',
+            'faq-5-a': 'Toma una foto de cualquier recibo y envíala a Obra. Lee el recibo, extrae el monto, proveedor y artículos, y lo registra en tu hoja de gastos. Tu contador te lo agradecerá.',
+            'faq-6-q': '¿Está disponible en español?',
+            'faq-6-a': 'Sí. Obra es completamente bilingüe — inglés y español. Detecta tu idioma automáticamente.',
+            'faq-7-q': '¿Cuánto cuesta?',
+            'faq-7-a': '$49/mes después de una prueba gratuita de 14 días. Sin contratos, cancela en cualquier momento. Eso es menos de una hora de trabajo de la mayoría de los contratistas.',
+            'faq-8-q': '¿Mis datos están seguros?',
+            'faq-8-a': 'Sí. Tus cotizaciones, recibos e información de clientes están encriptados y nunca se comparten. Tú eres dueño de tus datos.',
+            'faq-9-q': '¿Cómo empiezo?',
+            'faq-9-a': 'Escríbenos en WhatsApp. Te configuramos en menos de 15 minutos — solo dinos tu oficio, tus tarifas, y sube algunas cotizaciones pasadas para que Obra aprenda tus precios.',
+            'faq-10-q': '¿Mi contador o CPA puede acceder a mis datos?',
+            'faq-10-a': 'Sí. Tus gastos y cotizaciones se guardan en una hoja de Google que puedes compartir con quien quieras. Limpio, organizado, listo para impuestos.',
             'pricing-title': 'Precio simple',
             'price-period': '/mes',
             'price-trial': 'Prueba gratis 14 días — sin tarjeta de crédito',
@@ -1916,8 +2444,7 @@ This month's expenses: $2,841.50</div>
         });
         
         // Update active button
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
     }
     
@@ -1945,6 +2472,26 @@ This month's expenses: $2,841.50</div>
             observer.observe(section);
         });
     }
+    
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+            btn.setAttribute('aria-expanded', !isActive);
+        });
+    });
     
     // Floating WhatsApp button
     const fab = document.getElementById('whatsapp-fab');
