@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obra — Tu back office en WhatsApp</title>
-    <meta name="description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp. En 60 segundos.">
+    <title>Obra — Your back office on WhatsApp</title>
+    <meta name="description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://obra.app/">
-    <meta property="og:title" content="Obra — Tu back office en WhatsApp">
-    <meta property="og:description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp.">
+    <meta property="og:title" content="Obra — Your back office on WhatsApp">
+    <meta property="og:description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Obra — Tu back office en WhatsApp">
-    <meta property="twitter:description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp.">
+    <meta property="twitter:title" content="Obra — Your back office on WhatsApp">
+    <meta property="twitter:description" content="Send professional quotes in 60 seconds. Track every receipt. Never lose a lead.">
     
-    <!-- Preconnect for fonts -->
+    <!-- Async font load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <style>
-        /* CSS Reset & Base */
+        /* Reset */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -30,14 +31,15 @@
         }
         
         :root {
-            --teal: #0D7377;
-            --teal-dark: #0a5a5d;
+            --green: #1B8A2A;
+            --green-dark: #146B20;
+            --green-light: #E8F5E9;
             --yellow: #FFD600;
-            --gray: #4A4A4A;
+            --dark-text: #1A1A1A;
+            --body-text: #4A4A4A;
             --white: #FFFFFF;
-            --off-white: #F5F2EB;
+            --bg-alt: #F8F8F6;
             --whatsapp: #25D366;
-            --dark-gray: #2A2A2A;
         }
         
         html {
@@ -45,10 +47,8 @@
         }
         
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            * {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -56,9 +56,11 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
-            color: var(--gray);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: var(--body-text);
             line-height: 1.6;
+            font-size: 16px;
+            font-weight: 400;
             overflow-x: hidden;
         }
         
@@ -66,6 +68,7 @@
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             line-height: 1.2;
+            color: var(--dark-text);
         }
         
         /* Skip to content */
@@ -73,47 +76,46 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: var(--teal);
+            background: var(--green);
             color: white;
             padding: 8px 16px;
             text-decoration: none;
             z-index: 100;
         }
-        
-        .skip-to-content:focus {
-            top: 0;
-        }
+        .skip-to-content:focus { top: 0; }
         
         /* Navigation */
         nav {
             position: sticky;
             top: 0;
-            background: white;
-            height: 48px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 0 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             z-index: 40;
         }
         
         .logo {
             font-weight: 700;
-            font-size: 20px;
-            color: var(--teal);
+            font-size: 24px;
+            color: var(--green);
         }
         
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
         }
         
         .lang-toggle {
             display: flex;
-            background: var(--off-white);
-            border-radius: 20px;
+            background: var(--bg-alt);
+            border-radius: 24px;
             padding: 4px;
             gap: 2px;
         }
@@ -121,27 +123,27 @@
         .lang-toggle button {
             background: transparent;
             border: none;
-            padding: 4px 12px;
-            border-radius: 16px;
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--gray);
+            color: var(--body-text);
         }
         
         .lang-toggle button.active {
             background: white;
-            color: var(--teal);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            color: var(--green);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .nav-cta {
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 24px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -151,63 +153,98 @@
             gap: 6px;
             transition: transform 0.2s;
         }
-        
-        .nav-cta:hover {
-            transform: scale(1.05);
-        }
+        .nav-cta:hover { transform: scale(1.05); }
         
         /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
         }
         
+        /* Section animations - VISIBLE BY DEFAULT */
         section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-        
-        section.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
+        @media (prefers-reduced-motion: no-preference) {
+            section {
+                opacity: 0.8;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            }
+            section.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-            min-height: calc(100vh - 48px);
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            min-height: calc(100vh - 60px);
             display: flex;
             align-items: center;
             color: white;
-            padding: 48px 0;
+            padding: 60px 0;
         }
         
         .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
+            display: grid;
+            gap: 48px;
+            align-items: center;
         }
         
         .hero h1 {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
         
         .hero-subhead {
             font-size: 18px;
             opacity: 0.95;
-            line-height: 1.5;
-            margin-bottom: 24px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 500;
         }
         
-        /* CTA Button */
-        .cta-button {
-            background: var(--whatsapp);
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-primary {
+            background: var(--green);
             color: white;
             border: none;
-            padding: 16px 32px;
+            padding: 18px 36px;
+            border-radius: 9999px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-ghost {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 16px 34px;
             border-radius: 9999px;
             font-size: 18px;
             font-weight: 600;
@@ -216,426 +253,534 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            max-width: 100%;
+            transition: background 0.2s, color 0.2s;
+        }
+        .cta-ghost:hover {
+            background: white;
+            color: var(--green);
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        /* WhatsApp Chat Mockup */
+        /* WhatsApp Mockup */
         .whatsapp-mockup {
             background: #E5DDD5;
-            border-radius: 12px;
-            padding: 16px;
-            max-width: 400px;
-            margin: 32px auto 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            padding: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
         }
         
         .whatsapp-header {
-            background: var(--teal);
+            background: var(--green);
             color: white;
-            padding: 12px;
-            border-radius: 8px 8px 0 0;
-            margin: -16px -16px 12px -16px;
+            padding: 16px;
+            border-radius: 16px 16px 0 0;
             display: flex;
             align-items: center;
             gap: 12px;
         }
         
         .whatsapp-avatar {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: var(--yellow);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 24px;
         }
         
         .whatsapp-info h3 {
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 2px;
+            color: white;
         }
         
         .whatsapp-status {
-            font-size: 12px;
+            font-size: 13px;
             opacity: 0.9;
         }
         
         .chat-messages {
+            padding: 20px 16px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
         
         .message {
-            max-width: 80%;
-            padding: 8px 12px;
+            max-width: 75%;
+            padding: 10px 14px;
             border-radius: 8px;
-            font-size: 14px;
-            line-height: 1.4;
-            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
             word-wrap: break-word;
+            white-space: pre-line;
         }
         
         .message-user {
             background: #DCF8C6;
             align-self: flex-end;
             border-radius: 8px 0 8px 8px;
+            color: var(--dark-text);
         }
         
         .message-obra {
             background: white;
             align-self: flex-start;
             border-radius: 0 8px 8px 8px;
+            color: var(--dark-text);
         }
         
         .message-time {
-            font-size: 10px;
+            font-size: 11px;
             opacity: 0.6;
             margin-top: 4px;
             text-align: right;
         }
         
-        .message-obra .message-time {
-            text-align: left;
+        /* Social Proof Bar */
+        .social-proof {
+            background: var(--green-light);
+            padding: 48px 0;
         }
         
-        /* Problem Strip */
-        .problem-strip {
-            background: var(--off-white);
-            padding: 64px 0;
+        .social-proof-header {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--green-dark);
+            margin-bottom: 32px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--body-text);
+            font-weight: 500;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--dark-text);
+            margin-bottom: 56px;
         }
         
         .problem-cards {
             display: grid;
             gap: 24px;
-            margin-top: 32px;
         }
         
         .problem-card {
             background: white;
-            padding: 24px;
-            border-left: 4px solid var(--yellow);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s, transform 0.5s;
+            padding: 32px;
+            border-left: 5px solid var(--yellow);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
         
-        .visible .problem-card:nth-child(1) {
-            transition-delay: 0s;
-        }
-        
-        .visible .problem-card:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-        
-        .visible .problem-card:nth-child(3) {
-            transition-delay: 0.2s;
-        }
-        
-        .visible .problem-card {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .problem-card .emoji {
-            font-size: 32px;
-            margin-bottom: 12px;
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
         }
         
         .problem-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: var(--teal);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark-text);
         }
         
         .problem-card p {
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: var(--body-text);
         }
         
         /* Solution Section */
-        .solution {
+        .solution-section {
+            background: var(--bg-alt);
             padding: 80px 0;
-            background: white;
         }
         
-        .section-title {
-            font-size: 24px;
+        .feature-demo {
+            margin-bottom: 64px;
+        }
+        
+        .feature-demo:last-child {
+            margin-bottom: 0;
+        }
+        
+        .feature-label {
             text-align: center;
-            color: var(--teal);
-            margin-bottom: 48px;
-        }
-        
-        .solution-demos {
-            display: grid;
-            gap: 48px;
-            margin-top: 32px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         
         /* How It Works */
         .how-it-works {
-            background: var(--teal);
-            color: white;
+            background: white;
             padding: 80px 0;
         }
         
-        .how-it-works .section-title {
-            color: white;
-        }
-        
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
+        .steps-container {
+            display: grid;
+            gap: 40px;
             margin-top: 48px;
-            position: relative;
         }
         
         .step {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: flex-start;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s, transform 0.5s;
-        }
-        
-        .visible .step:nth-child(1) {
-            transition-delay: 0s;
-        }
-        
-        .visible .step:nth-child(2) {
-            transition-delay: 0.15s;
-        }
-        
-        .visible .step:nth-child(3) {
-            transition-delay: 0.3s;
-        }
-        
-        .visible .step {
-            opacity: 1;
-            transform: translateY(0);
         }
         
         .step-number {
-            background: var(--yellow);
-            color: var(--teal);
-            width: 48px;
-            height: 48px;
+            background: var(--green);
+            color: white;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 24px;
+            font-weight: 800;
+            font-size: 28px;
             flex-shrink: 0;
         }
         
         .step-content h3 {
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: 700;
             margin-bottom: 8px;
+            color: var(--dark-text);
         }
         
         .step-content p {
             font-size: 16px;
-            opacity: 0.9;
+            color: var(--body-text);
+            line-height: 1.6;
         }
         
-        /* Quote Card Showcase */
+        .step-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        
+        /* Quote Showcase */
         .quote-showcase {
+            background: var(--bg-alt);
             padding: 80px 0;
-            background: white;
-            position: relative;
         }
         
-        .quote-showcase::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
-                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
-            opacity: 0.3;
-            pointer-events: none;
-        }
-        
-        .quote-cards-container {
+        .quote-scroll-container {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            margin-top: 32px;
-        }
-        
-        .quote-cards-container::-webkit-scrollbar {
-            display: none;
+            scrollbar-width: thin;
+            margin-top: 48px;
+            padding-bottom: 20px;
         }
         
         .quote-cards {
             display: flex;
-            gap: 24px;
-            padding: 20px 0;
+            gap: 32px;
             min-width: min-content;
         }
         
         .quote-card {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            min-width: 320px;
-            max-width: 360px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            min-width: 340px;
+            max-width: 380px;
+            transition: transform 0.3s ease-out;
             transform: rotate(-1deg);
-            transition: transform 0.3s;
         }
         
         .quote-card:nth-child(2) {
-            transform: rotate(1deg);
+            transform: rotate(0.5deg);
         }
         
         .quote-card:nth-child(3) {
-            transform: rotate(-0.5deg);
+            transform: rotate(-0.75deg);
         }
         
         .quote-card:hover {
-            transform: rotate(0deg) translateY(-4px);
+            transform: rotate(0deg) translateY(-8px) scale(1.02);
         }
         
         .quote-header {
-            background: var(--teal);
+            background: var(--green);
             color: white;
-            padding: 16px;
-            border-radius: 8px 8px 0 0;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
         }
         
-        .quote-header h3 {
-            font-size: 18px;
+        .quote-company {
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 4px;
         }
         
-        .quote-header p {
+        .quote-client {
             font-size: 14px;
             opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .quote-meta {
+            font-size: 12px;
+            opacity: 0.8;
+            display: flex;
+            gap: 16px;
         }
         
         .quote-body {
-            padding: 20px;
+            padding: 24px;
         }
         
         .quote-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
+            font-size: 15px;
         }
         
-        .quote-item:last-of-type {
-            border-bottom: 2px solid var(--teal);
-            margin-bottom: 12px;
+        .quote-item-desc {
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        .quote-item-price {
+            color: var(--body-text);
+            font-weight: 600;
+        }
+        
+        .quote-subtotal {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0 8px;
+            font-size: 14px;
+            color: var(--body-text);
+        }
+        
+        .quote-tax {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0 12px;
+            font-size: 14px;
+            color: var(--body-text);
+            border-bottom: 2px solid var(--green);
         }
         
         .quote-total {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            font-weight: 700;
-            font-size: 20px;
+            padding: 16px 0;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--dark-text);
         }
         
         .quote-total .amount {
             background: var(--yellow);
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+        
+        .quote-terms {
+            background: var(--green-light);
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--body-text);
         }
         
         .quote-footer {
             text-align: center;
-            padding: 12px;
-            background: var(--off-white);
-            border-radius: 0 0 8px 8px;
+            padding: 16px;
+            background: var(--bg-alt);
+            border-radius: 0 0 12px 12px;
             font-size: 12px;
-            color: var(--gray);
+            color: var(--body-text);
         }
         
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--off-white);
-            padding: 48px 0;
+        /* Industry Tags */
+        .industry-tags {
+            background: white;
+            padding: 80px 0;
         }
         
-        .stats {
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        
+        .tag {
+            background: white;
+            border: 2px solid var(--green);
+            color: var(--green);
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tag:hover {
+            background: var(--green);
+            color: white;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg-alt);
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
             display: grid;
             gap: 32px;
-            text-align: center;
+            margin-top: 48px;
         }
         
-        .stat h3 {
-            font-size: 28px;
-            color: var(--teal);
-            margin-bottom: 8px;
+        .testimonial-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        .stat p {
+        .stars {
+            color: var(--yellow);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-text {
             font-size: 16px;
+            line-height: 1.7;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--dark-text);
+        }
+        
+        .author-trade {
+            font-size: 14px;
+            color: var(--body-text);
+        }
+        
+        .trade-badge {
+            background: var(--green-light);
+            color: var(--green);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
         }
         
         /* Pricing */
         .pricing {
-            padding: 80px 0;
             background: white;
+            padding: 80px 0;
         }
         
         .pricing-card {
-            max-width: 440px;
-            margin: 32px auto 0;
+            max-width: 500px;
+            margin: 48px auto 0;
             background: white;
-            border: 2px solid var(--teal);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border: 3px solid var(--green);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        
+        .price-tag {
+            text-align: center;
+            margin-bottom: 12px;
         }
         
         .price {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--teal);
-            text-align: center;
-            margin-bottom: 8px;
-            position: relative;
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--green);
             display: inline-block;
-            width: 100%;
         }
         
-        .price::after {
-            content: '';
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 12px;
-            background: var(--yellow);
-            opacity: 0.6;
-            z-index: -1;
+        .price-period {
+            font-size: 24px;
+            font-weight: 600;
         }
         
-        .price-subtext {
+        .price-trial {
             text-align: center;
             font-size: 16px;
-            color: var(--gray);
+            font-weight: 600;
+            color: var(--green);
             margin-bottom: 32px;
         }
         
@@ -645,242 +790,287 @@
         }
         
         .features-list li {
-            padding: 12px 0;
-            padding-left: 32px;
+            padding: 14px 0;
+            padding-left: 36px;
             position: relative;
             font-size: 16px;
+            line-height: 1.5;
         }
         
         .features-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--whatsapp);
-            font-weight: 700;
-            font-size: 20px;
+            color: var(--green);
+            font-weight: 800;
+            font-size: 22px;
         }
         
         .comparison-table {
             margin: 32px 0;
-            border-top: 2px solid var(--off-white);
+            border-top: 3px solid var(--green-light);
             padding-top: 24px;
         }
         
-        .comparison-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--off-white);
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 16px;
         }
         
-        .comparison-row strong {
-            color: var(--teal);
+        .comparison-header .obra {
+            color: var(--green);
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--green-light);
+            font-size: 15px;
+        }
+        
+        .pricing-cta {
+            background: var(--green);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            border-radius: 9999px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            box-shadow: 0 4px 16px rgba(27, 138, 42, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 138, 42, 0.4);
         }
         
         .pricing-footer {
             text-align: center;
-            margin-top: 24px;
-            font-size: 14px;
-            color: var(--gray);
-            font-style: italic;
-        }
-        
-        /* Referral */
-        .referral {
-            background: var(--off-white);
-            padding: 64px 0;
-            text-align: center;
-        }
-        
-        .referral h2 {
-            font-size: 24px;
-            color: var(--teal);
-            margin-bottom: 24px;
-        }
-        
-        .referral-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .share-button, .copy-button {
-            background: var(--whatsapp);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 9999px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s;
-        }
-        
-        .copy-button {
-            background: var(--teal);
-        }
-        
-        .share-button:hover, .copy-button:hover {
-            transform: scale(1.05);
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--body-text);
         }
         
         /* Final CTA */
         .final-cta {
-            background: var(--teal);
+            background: var(--green-dark);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
         
         .final-cta h2 {
-            font-size: 32px;
-            margin-bottom: 32px;
+            font-size: 40px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 48px;
         }
         
         .final-cta-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 32px;
+            gap: 40px;
+        }
+        
+        .final-cta-button {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 22px 48px;
+            border-radius: 9999px;
+            font-size: 22px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .final-cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
         
         .qr-code {
             background: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 24px;
+            border-radius: 16px;
             display: none;
         }
         
-        .bilingual-badge {
+        .final-cta-tagline {
             font-size: 18px;
-            opacity: 0.9;
-            margin-top: 16px;
+            opacity: 0.95;
+            font-weight: 500;
         }
         
         /* Footer */
         footer {
-            background: var(--dark-gray);
+            background: #1A1A1A;
             color: white;
-            padding: 32px 0;
-            text-align: center;
+            padding: 60px 0 40px;
         }
         
-        footer p {
-            opacity: 0.8;
+        .footer-content {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--green-light);
             margin-bottom: 12px;
         }
         
-        footer a {
-            color: var(--yellow);
+        .footer-tagline {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-links a {
+            color: white;
             text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            font-size: 14px;
         }
         
-        footer a:hover {
-            text-decoration: underline;
+        .footer-links a:hover {
+            opacity: 1;
         }
         
-        /* Floating WhatsApp Button */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Floating WhatsApp FAB */
         .whatsapp-fab {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 56px;
-            height: 56px;
+            bottom: 28px;
+            right: 28px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: var(--whatsapp);
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
             cursor: pointer;
             z-index: 50;
             transition: transform 0.2s;
             text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
         }
         
         .whatsapp-fab.visible {
-            display: flex;
+            opacity: 1;
+            pointer-events: all;
         }
         
         .whatsapp-fab:hover {
             transform: scale(1.1);
         }
         
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+        @keyframes pulse-fab {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .whatsapp-fab.pulse {
-            animation: pulse 2s infinite;
+            animation: pulse-fab 2s ease-in-out;
         }
         
         /* Desktop Styles */
         @media (min-width: 768px) {
             .hero h1 {
-                font-size: 56px;
+                font-size: 72px;
             }
             
             .hero-subhead {
                 font-size: 20px;
             }
             
-            .section-title {
-                font-size: 40px;
-            }
-            
             body {
                 font-size: 18px;
             }
             
+            .section-title {
+                font-size: 48px;
+            }
+            
             .hero-content {
-                flex-direction: row;
-                align-items: center;
-                gap: 64px;
-            }
-            
-            .hero-text {
-                flex: 1;
-            }
-            
-            .hero-mockup {
-                flex: 1;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
             }
             
             .problem-cards {
                 grid-template-columns: repeat(3, 1fr);
             }
             
-            .steps {
-                flex-direction: row;
-                justify-content: space-between;
+            .steps-container {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 48px;
+                position: relative;
+            }
+            
+            .steps-container::before {
+                content: '';
+                position: absolute;
+                top: 28px;
+                left: 12%;
+                right: 12%;
+                height: 2px;
+                background: linear-gradient(90deg, 
+                    var(--green) 0%, 
+                    var(--green) 33%, 
+                    var(--green-light) 33%, 
+                    var(--green-light) 35%, 
+                    var(--green) 35%, 
+                    var(--green) 66%, 
+                    var(--green-light) 66%, 
+                    var(--green-light) 68%, 
+                    var(--green) 68%, 
+                    var(--green) 100%
+                );
+                z-index: 0;
             }
             
             .step {
-                flex: 1;
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
-            }
-            
-            .steps::before {
-                content: '';
-                position: absolute;
-                top: 24px;
-                left: 10%;
-                right: 10%;
-                height: 2px;
-                border-top: 2px dashed rgba(255, 255, 255, 0.3);
-                z-index: 0;
             }
             
             .step-number {
@@ -888,13 +1078,12 @@
                 z-index: 1;
             }
             
-            .stats {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
             .quote-cards {
                 justify-content: center;
-                flex-wrap: wrap;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .qr-code {
@@ -905,11 +1094,15 @@
                 flex-direction: row;
                 justify-content: center;
             }
+            
+            .footer-content {
+                grid-template-columns: 2fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <a href="#main" class="skip-to-content">Skip to content</a>
     
     <!-- Navigation -->
     <nav>
@@ -919,8 +1112,8 @@
                 <button class="lang-btn active" data-lang="es">ES</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
-            <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="nav-cta" aria-label="Contact Obra on WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra,%20I%20want%20to%20try%20it%20(DEMO)" class="nav-cta" aria-label="Contact Obra on WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
                 <span data-i18n="nav-cta">Escribe a Obra</span>
@@ -928,20 +1121,25 @@
         </div>
     </nav>
     
-    <main id="main-content">
+    <main id="main">
         <!-- Hero Section -->
-        <section class="hero visible">
+        <section class="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 data-i18n="hero-headline">Estás trabajando. Obra también.</h1>
-                        <p class="hero-subhead" data-i18n="hero-subhead">Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa — en WhatsApp. En 60 segundos.</p>
-                        <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" aria-label="Start conversation with Obra on WhatsApp">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                            <span data-i18n="cta-text">Escribe a Obra</span>
-                        </a>
+                        <h1 data-i18n="hero-h1">Estás trabajando. Obra también.</h1>
+                        <p class="hero-subhead" data-i18n="hero-subhead">Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.</p>
+                        <div class="hero-ctas">
+                            <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra,%20I%20want%20to%20try%20it%20(DEMO)" class="cta-primary">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                                <span data-i18n="cta-primary">Try It Free</span>
+                            </a>
+                            <a href="#how-it-works" class="cta-ghost">
+                                <span data-i18n="cta-ghost">See How It Works</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="hero-mockup">
                         <div class="whatsapp-mockup">
@@ -949,31 +1147,28 @@
                                 <div class="whatsapp-avatar">🏗️</div>
                                 <div class="whatsapp-info">
                                     <h3>Obra</h3>
-                                    <div class="whatsapp-status" data-i18n="online">en línea</div>
+                                    <div class="whatsapp-status" data-i18n="status-online">online</div>
                                 </div>
                             </div>
                             <div class="chat-messages">
                                 <div class="message message-user">
-                                    <div data-i18n="hero-msg-1">Necesito cotización para 1,200 pies² reroof, teja 30 años</div>
-                                    <div class="message-time">10:23</div>
+                                    <div data-i18n="hero-msg-1">Need a quote for a 1,200 sq ft reroof, 30-year shingle</div>
                                 </div>
                                 <div class="message message-obra">
-                                    <div data-i18n="hero-msg-2">Entendido. Aquí está tu estimado:<br>
-                                    Materiales .......... $4,140<br>
-                                    Mano de obra ...... $3,600<br>
-                                    Desmontaje ......... $1,200<br>
-                                    ─────────────────────<br>
-                                    Total .............. $8,940<br><br>
-                                    ¿Lo envío a tu cliente?</div>
-                                    <div class="message-time">10:24</div>
+                                    <div data-i18n="hero-msg-2">Got it. Here's your estimate:
+Materials .......... $4,140
+Labor .............. $3,600
+Tear-off ........... $1,200
+─────────────────────
+Total .............. $8,940
+
+Want me to send this to your customer?</div>
                                 </div>
                                 <div class="message message-user">
-                                    <div data-i18n="hero-msg-3">Sí envíalo a 512-555-0199</div>
-                                    <div class="message-time">10:25</div>
+                                    <div data-i18n="hero-msg-3">Yeah send it to 512-555-0199</div>
                                 </div>
                                 <div class="message message-obra">
-                                    <div data-i18n="hero-msg-4">✅ Cotización enviada. Le daré seguimiento en 48 horas si no responde.</div>
-                                    <div class="message-time">10:25</div>
+                                    <div data-i18n="hero-msg-4">✅ Sent! I'll follow up in 48hrs.</div>
                                 </div>
                             </div>
                         </div>
@@ -982,74 +1177,137 @@
             </div>
         </section>
         
-        <!-- Problem Strip -->
-        <section class="problem-strip">
+        <!-- Social Proof Bar -->
+        <section class="social-proof">
             <div class="container">
+                <div class="social-proof-header" data-i18n="social-proof-header">Trusted by 500+ contractors across Texas</div>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-number">12,000+</div>
+                        <div class="stat-label" data-i18n="stat-quotes">quotes sent</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label" data-i18n="stat-trades">trades</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$2.3M</div>
+                        <div class="stat-label" data-i18n="stat-jobs">in jobs quoted</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Problem Section -->
+        <section class="problem-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="problem-title">You're losing money every day</h2>
                 <div class="problem-cards">
                     <div class="problem-card">
-                        <div class="emoji">📞</div>
-                        <h3 data-i18n="problem-1-title">Pierdes clientes cada día</h3>
-                        <p data-i18n="problem-1-text">Responder a las 8pm ya es tarde. Para cuando envías la cotización, ya contrataron a otro.</p>
+                        <div class="problem-icon">📞</div>
+                        <h3 data-i18n="problem-1-h3">Last month, you lost 3 jobs because you quoted too slow.</h3>
+                        <p data-i18n="problem-1-p">By the time you got home and sent the quote, they'd already hired someone else.</p>
                     </div>
                     <div class="problem-card">
-                        <div class="emoji">🧾</div>
-                        <h3 data-i18n="problem-2-title">Recibos en todas partes</h3>
-                        <p data-i18n="problem-2-text">Cajuela del carro. Cartera. Consola. Al final del año, gastos deducibles que nunca encontrarás.</p>
+                        <div class="problem-icon">🧾</div>
+                        <h3 data-i18n="problem-2-h3">Your CPA charged you $800 extra because your receipts were in a shoebox.</h3>
+                        <p data-i18n="problem-2-p">Half your deductions lost in the truck. The other half stuffed in your wallet.</p>
                     </div>
                     <div class="problem-card">
-                        <div class="emoji">💸</div>
-                        <h3 data-i18n="problem-3-title">No puedes contratar ayuda</h3>
-                        <p data-i18n="problem-3-text">Un contador cuesta $2,000/mes. Un asistente $3,000. Mientras tanto, haces todo tú.</p>
+                        <div class="problem-icon">💸</div>
+                        <h3 data-i18n="problem-3-h3">You thought about hiring help. Then you saw the price tag.</h3>
+                        <p data-i18n="problem-3-p">$2,000/month for a bookkeeper. $3,000 for an assistant. Meanwhile, you're doing it all yourself.</p>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Solution Section -->
-        <section class="solution">
+        <section class="solution-section">
             <div class="container">
-                <h2 class="section-title" data-i18n="solution-title">Conoce a Obra</h2>
-                <div class="solution-demos">
-                    <div class="whatsapp-mockup" style="margin: 0 auto;">
+                <h2 class="section-title" data-i18n="solution-title">Meet Obra</h2>
+                
+                <div class="feature-demo">
+                    <div class="feature-label">
+                        <span>⚡</span>
+                        <span data-i18n="feature-quotes">60-Second Quotes</span>
+                    </div>
+                    <div class="whatsapp-mockup">
                         <div class="whatsapp-header">
                             <div class="whatsapp-avatar">🏗️</div>
                             <div class="whatsapp-info">
                                 <h3>Obra</h3>
-                                <div class="whatsapp-status" data-i18n="online">en línea</div>
+                                <div class="whatsapp-status" data-i18n="status-online">online</div>
                             </div>
                         </div>
                         <div class="chat-messages">
                             <div class="message message-user">
-                                <div>📸 [<span data-i18n="receipt-placeholder">Foto de recibo</span>]</div>
-                                <div class="message-time">14:32</div>
+                                <div data-i18n="sol-quote-msg-1">Kitchen remodel. 250 sq ft tile, cabinets, countertops</div>
                             </div>
                             <div class="message message-obra">
-                                <div data-i18n="solution-msg-receipt">Listo. $347.82 — madera, amarres Simpson, mezcla cemento. Archivado en "Trabajo Martinez." Total este mes: $2,841.50</div>
-                                <div class="message-time">14:32</div>
+                                <div data-i18n="sol-quote-msg-2">Got it. Quick quote:
+Tile install (250 sq ft) ... $3,000
+Cabinets ................... $8,500
+Countertops (quartz) ....... $4,200
+Labor ...................... $5,800
+─────────────────────────────
+Total ..................... $21,500
+
+Ready to send?</div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="whatsapp-mockup" style="margin: 0 auto;">
+                </div>
+                
+                <div class="feature-demo">
+                    <div class="feature-label">
+                        <span>📸</span>
+                        <span data-i18n="feature-receipts">Snap & Track Receipts</span>
+                    </div>
+                    <div class="whatsapp-mockup">
                         <div class="whatsapp-header">
                             <div class="whatsapp-avatar">🏗️</div>
                             <div class="whatsapp-info">
                                 <h3>Obra</h3>
-                                <div class="whatsapp-status" data-i18n="online">en línea</div>
+                                <div class="whatsapp-status" data-i18n="status-online">online</div>
+                            </div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message message-user">
+                                <div data-i18n="sol-receipt-msg-1">📸 [Photo of Home Depot receipt]</div>
+                            </div>
+                            <div class="message message-obra">
+                                <div data-i18n="sol-receipt-msg-2">✅ Saved!
+$347.82 — lumber, Simpson ties, cement mix
+Filed under "Martinez Job"
+This month's expenses: $2,841.50</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-demo">
+                    <div class="feature-label">
+                        <span>📞</span>
+                        <span data-i18n="feature-leads">Never Miss a Lead</span>
+                    </div>
+                    <div class="whatsapp-mockup">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-avatar">🏗️</div>
+                            <div class="whatsapp-info">
+                                <h3>Obra</h3>
+                                <div class="whatsapp-status" data-i18n="status-online">online</div>
                             </div>
                         </div>
                         <div class="chat-messages">
                             <div class="message message-obra">
-                                <div data-i18n="solution-msg-lead">Hola — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?</div>
-                                <div class="message-time">09:15</div>
+                                <div data-i18n="sol-lead-msg-1">Heads up — Carlos responded to your Facebook ad. Wants a quote for bathroom remodel. Should I handle it?</div>
                             </div>
                             <div class="message message-user">
-                                <div data-i18n="solution-msg-lead-reply">Sí adelante</div>
-                                <div class="message-time">09:47</div>
+                                <div data-i18n="sol-lead-msg-2">Yeah go ahead</div>
                             </div>
                             <div class="message message-obra">
-                                <div>✅ <span data-i18n="solution-msg-lead-confirm">En eso.</span></div>
-                                <div class="message-time">09:47</div>
+                                <div data-i18n="sol-lead-msg-3">✅ On it. I'll get the details and send you a draft quote in 10 minutes.</div>
                             </div>
                         </div>
                     </div>
@@ -1058,114 +1316,168 @@
         </section>
         
         <!-- How It Works -->
-        <section class="how-it-works">
+        <section class="how-it-works" id="how-it-works">
             <div class="container">
-                <h2 class="section-title" data-i18n="how-title">Cómo funciona</h2>
-                <div class="steps">
+                <h2 class="section-title" data-i18n="how-title">How It Works</h2>
+                <div class="steps-container">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3 data-i18n="step-1-title">Escribe a Obra</h3>
-                            <p data-i18n="step-1-text">Envía un mensaje como lo harías con cualquier persona. Sin apps nuevas.</p>
+                            <div class="step-icon">📱</div>
+                            <h3 data-i18n="step-1-h3">Text Obra on WhatsApp</h3>
+                            <p data-i18n="step-1-p">No app download. No new login. Just message like you would a person.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3 data-i18n="step-2-title">Obra hace el trabajo</h3>
-                            <p data-i18n="step-2-text">Cotizaciones, recibos, seguimientos. Todo organizado, todo profesional.</p>
+                            <div class="step-icon">💬</div>
+                            <h3 data-i18n="step-2-h3">Describe your job in plain words</h3>
+                            <p data-i18n="step-2-p">"Need a quote for painting 3 bedrooms" — that's it. Obra handles the rest.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h3 data-i18n="step-3-title">Tú cierras el trabajo</h3>
-                            <p data-i18n="step-3-text">Respuestas rápidas = más trabajos. Recibos guardados = más deducciones.</p>
+                            <div class="step-icon">📄</div>
+                            <h3 data-i18n="step-3-h3">Get a pro quote in 60 seconds</h3>
+                            <p data-i18n="step-3-p">Professional estimate, ready to send to your customer. Fast enough to win the job.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Quote Card Showcase -->
+        <!-- Quote Showcase -->
         <section class="quote-showcase">
             <div class="container">
-                <h2 class="section-title" data-i18n="quote-title">Cotizaciones profesionales en segundos</h2>
-                <div class="quote-cards-container">
+                <h2 class="section-title" data-i18n="quote-title">Professional quotes in seconds</h2>
+                <div class="quote-scroll-container">
                     <div class="quote-cards">
+                        <!-- Quote Card 1: Tile -->
                         <div class="quote-card">
                             <div class="quote-header">
-                                <h3>Martinez Tile & Stone</h3>
-                                <p data-i18n="quote-1-client">Para: Maria Lopez</p>
+                                <div class="quote-company">Martinez Tile & Stone</div>
+                                <div class="quote-client" data-i18n="quote-1-client">For: Maria Lopez</div>
+                                <div class="quote-meta">
+                                    <span data-i18n="quote-1-date">Jan 15, 2026</span>
+                                    <span data-i18n="quote-1-number">Quote #1247</span>
+                                </div>
                             </div>
                             <div class="quote-body">
                                 <div class="quote-item">
-                                    <span data-i18n="quote-1-item-1">Instalación azulejo 200 pies²</span>
-                                    <span>$2,400</span>
+                                    <span class="quote-item-desc" data-i18n="quote-1-item-1">Tile installation (200 sq ft)</span>
+                                    <span class="quote-item-price">$2,400</span>
                                 </div>
                                 <div class="quote-item">
-                                    <span data-i18n="quote-1-item-2">Lechada y materiales</span>
-                                    <span>$340</span>
+                                    <span class="quote-item-desc" data-i18n="quote-1-item-2">Grout and materials</span>
+                                    <span class="quote-item-price">$340</span>
                                 </div>
                                 <div class="quote-item">
-                                    <span data-i18n="quote-1-item-3">Preparación mano obra</span>
-                                    <span>$280</span>
+                                    <span class="quote-item-desc" data-i18n="quote-1-item-3">Surface prep and labor</span>
+                                    <span class="quote-item-price">$280</span>
+                                </div>
+                                <div class="quote-subtotal">
+                                    <span data-i18n="subtotal">Subtotal</span>
+                                    <span>$3,020</span>
+                                </div>
+                                <div class="quote-tax">
+                                    <span data-i18n="tax">Tax (8.25%)</span>
+                                    <span>$249</span>
                                 </div>
                                 <div class="quote-total">
                                     <span data-i18n="total">Total</span>
-                                    <span class="amount">$3,020</span>
+                                    <span class="amount">$3,269</span>
+                                </div>
+                                <div class="quote-terms">
+                                    <div data-i18n="terms-payment"><strong>Payment:</strong> 50% deposit, balance on completion</div>
+                                    <div data-i18n="terms-valid"><strong>Valid:</strong> 30 days</div>
                                 </div>
                             </div>
                             <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
                         </div>
                         
+                        <!-- Quote Card 2: Painting -->
                         <div class="quote-card">
                             <div class="quote-header">
-                                <h3>Pro Finish Painting LLC</h3>
-                                <p data-i18n="quote-2-client">Para: James Wilson</p>
+                                <div class="quote-company">Pro Finish Painting LLC</div>
+                                <div class="quote-client" data-i18n="quote-2-client">For: James Wilson</div>
+                                <div class="quote-meta">
+                                    <span data-i18n="quote-2-date">Jan 16, 2026</span>
+                                    <span data-i18n="quote-2-number">Quote #2891</span>
+                                </div>
                             </div>
                             <div class="quote-body">
                                 <div class="quote-item">
-                                    <span data-i18n="quote-2-item-1">Pintura interior 3 recámaras 1,800 pies²</span>
-                                    <span>$3,200</span>
+                                    <span class="quote-item-desc" data-i18n="quote-2-item-1">Interior painting (3 bedrooms, 1,800 sq ft)</span>
+                                    <span class="quote-item-price">$3,200</span>
                                 </div>
                                 <div class="quote-item">
-                                    <span data-i18n="quote-2-item-2">Molduras y puertas</span>
-                                    <span>$800</span>
+                                    <span class="quote-item-desc" data-i18n="quote-2-item-2">Trim and doors</span>
+                                    <span class="quote-item-price">$800</span>
                                 </div>
                                 <div class="quote-item">
-                                    <span data-i18n="quote-2-item-3">Prep y primer</span>
-                                    <span>$600</span>
+                                    <span class="quote-item-desc" data-i18n="quote-2-item-3">Prep and primer</span>
+                                    <span class="quote-item-price">$600</span>
                                 </div>
-                                <div class="quote-total">
-                                    <span data-i18n="total">Total</span>
-                                    <span class="amount">$4,600</span>
+                                <div class="quote-subtotal">
+                                    <span data-i18n="subtotal">Subtotal</span>
+                                    <span>$4,600</span>
                                 </div>
-                            </div>
-                            <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
-                        </div>
-                        
-                        <div class="quote-card">
-                            <div class="quote-header">
-                                <h3>Verde Landscaping</h3>
-                                <p data-i18n="quote-3-client">Para: Sarah Chen</p>
-                            </div>
-                            <div class="quote-body">
-                                <div class="quote-item">
-                                    <span data-i18n="quote-3-item-1">Instalación césped 2,500 pies²</span>
-                                    <span>$2,750</span>
-                                </div>
-                                <div class="quote-item">
-                                    <span data-i18n="quote-3-item-2">Reparación riego</span>
-                                    <span>$450</span>
-                                </div>
-                                <div class="quote-item">
-                                    <span data-i18n="quote-3-item-3">Mulch y limpieza</span>
+                                <div class="quote-tax">
+                                    <span data-i18n="tax">Tax (8.25%)</span>
                                     <span>$380</span>
                                 </div>
                                 <div class="quote-total">
                                     <span data-i18n="total">Total</span>
-                                    <span class="amount">$3,580</span>
+                                    <span class="amount">$4,980</span>
+                                </div>
+                                <div class="quote-terms">
+                                    <div data-i18n="terms-payment"><strong>Payment:</strong> 50% deposit, balance on completion</div>
+                                    <div data-i18n="terms-valid"><strong>Valid:</strong> 30 days</div>
+                                </div>
+                            </div>
+                            <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
+                        </div>
+                        
+                        <!-- Quote Card 3: Landscaping -->
+                        <div class="quote-card">
+                            <div class="quote-header">
+                                <div class="quote-company">Verde Landscaping</div>
+                                <div class="quote-client" data-i18n="quote-3-client">For: Sarah Chen</div>
+                                <div class="quote-meta">
+                                    <span data-i18n="quote-3-date">Jan 17, 2026</span>
+                                    <span data-i18n="quote-3-number">Quote #445</span>
+                                </div>
+                            </div>
+                            <div class="quote-body">
+                                <div class="quote-item">
+                                    <span class="quote-item-desc" data-i18n="quote-3-item-1">Sod installation (2,500 sq ft)</span>
+                                    <span class="quote-item-price">$2,750</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span class="quote-item-desc" data-i18n="quote-3-item-2">Irrigation repair</span>
+                                    <span class="quote-item-price">$450</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span class="quote-item-desc" data-i18n="quote-3-item-3">Mulch and cleanup</span>
+                                    <span class="quote-item-price">$380</span>
+                                </div>
+                                <div class="quote-subtotal">
+                                    <span data-i18n="subtotal">Subtotal</span>
+                                    <span>$3,580</span>
+                                </div>
+                                <div class="quote-tax">
+                                    <span data-i18n="tax">Tax (8.25%)</span>
+                                    <span>$295</span>
+                                </div>
+                                <div class="quote-total">
+                                    <span data-i18n="total">Total</span>
+                                    <span class="amount">$3,875</span>
+                                </div>
+                                <div class="quote-terms">
+                                    <div data-i18n="terms-payment"><strong>Payment:</strong> 50% deposit, balance on completion</div>
+                                    <div data-i18n="terms-valid"><strong>Valid:</strong> 30 days</div>
                                 </div>
                             </div>
                             <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
@@ -1175,21 +1487,73 @@
             </div>
         </section>
         
-        <!-- Stats Bar -->
-        <section class="stats-bar">
+        <!-- Industry Tags -->
+        <section class="industry-tags">
             <div class="container">
-                <div class="stats">
-                    <div class="stat">
-                        <h3 data-i18n="stat-1-number">&lt; 60 seg</h3>
-                        <p data-i18n="stat-1-text">para enviar una cotización</p>
+                <h2 class="section-title" data-i18n="industry-title">Built for your trade</h2>
+                <div class="tags-container">
+                    <div class="tag" data-i18n="tag-painting">Painting</div>
+                    <div class="tag" data-i18n="tag-plumbing">Plumbing</div>
+                    <div class="tag" data-i18n="tag-electrical">Electrical</div>
+                    <div class="tag" data-i18n="tag-landscaping">Landscaping</div>
+                    <div class="tag" data-i18n="tag-roofing">Roofing</div>
+                    <div class="tag" data-i18n="tag-handyman">Handyman</div>
+                    <div class="tag" data-i18n="tag-tile">Tile</div>
+                    <div class="tag" data-i18n="tag-hvac">HVAC</div>
+                    <div class="tag" data-i18n="tag-carpentry">Carpentry</div>
+                    <div class="tag" data-i18n="tag-remodeling">Remodeling</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title" data-i18n="testimonials-title">What contractors are saying</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text" data-i18n="testimonial-1-text">"I used to spend 2 hours every night doing quotes. Now I send them from the truck in 60 seconds. Game changer."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CM</div>
+                            <div class="author-info">
+                                <div class="author-name">Carlos M.</div>
+                                <div class="author-trade">
+                                    <span class="trade-badge" data-i18n="testimonial-1-trade">Painting</span>
+                                    <span data-i18n="testimonial-1-city">Houston, TX</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3>$49/mes</h3>
-                        <p data-i18n="stat-2-text">no $2K por ayuda</p>
+                    
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text" data-i18n="testimonial-2-text">"My CPA loves me now. All my receipts organized automatically. Tax season used to be a nightmare."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JR</div>
+                            <div class="author-info">
+                                <div class="author-name">Jessica R.</div>
+                                <div class="author-trade">
+                                    <span class="trade-badge" data-i18n="testimonial-2-trade">Landscaping</span>
+                                    <span data-i18n="testimonial-2-city">Austin, TX</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3 data-i18n="stat-3-number">Tu teléfono</h3>
-                        <p data-i18n="stat-3-text">El que ya tienes</p>
+                    
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text" data-i18n="testimonial-3-text">"I win more jobs now because I'm the first one to send a quote. Obra pays for itself 10x over."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DL</div>
+                            <div class="author-info">
+                                <div class="author-name">David L.</div>
+                                <div class="author-trade">
+                                    <span class="trade-badge" data-i18n="testimonial-3-trade">Tile & Flooring</span>
+                                    <span data-i18n="testimonial-3-city">San Antonio, TX</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1198,72 +1562,48 @@
         <!-- Pricing -->
         <section class="pricing">
             <div class="container">
-                <h2 class="section-title" data-i18n="pricing-title">Precio simple</h2>
+                <h2 class="section-title" data-i18n="pricing-title">Simple pricing</h2>
                 <div class="pricing-card">
-                    <div class="price">$49<span style="font-size: 24px;">/mes</span></div>
-                    <div class="price-subtext" data-i18n="price-subtext">Sin contratos. Cancela cuando quieras.</div>
+                    <div class="price-tag">
+                        <span class="price">$49</span><span class="price-period" data-i18n="price-period">/mo</span>
+                    </div>
+                    <div class="price-trial" data-i18n="price-trial">Try free for 14 days — no credit card required</div>
                     
                     <ul class="features-list">
-                        <li data-i18n="feature-1">Cotizaciones ilimitadas</li>
-                        <li data-i18n="feature-2">Seguimiento de recibos y gastos</li>
-                        <li data-i18n="feature-3">Manejo de leads y seguimientos</li>
-                        <li data-i18n="feature-4">Bilingüe (inglés y español)</li>
-                        <li data-i18n="feature-5">Funciona en WhatsApp — sin apps nuevas</li>
+                        <li data-i18n="pricing-feature-1">Unlimited quotes</li>
+                        <li data-i18n="pricing-feature-2">Receipt tracking & expense management</li>
+                        <li data-i18n="pricing-feature-3">Lead management & follow-ups</li>
+                        <li data-i18n="pricing-feature-4">Bilingual (English & Spanish)</li>
+                        <li data-i18n="pricing-feature-5">Works in WhatsApp — no new apps</li>
                     </ul>
                     
                     <div class="comparison-table">
-                        <div class="comparison-row">
-                            <span><strong>Obra</strong></span>
-                            <span data-i18n="comparison-vs">vs</span>
-                            <span data-i18n="comparison-hire">Contratar alguien</span>
+                        <div class="comparison-header">
+                            <div class="obra">Obra</div>
+                            <div data-i18n="comparison-vs">Office Help</div>
                         </div>
                         <div class="comparison-row">
-                            <span>$49/mes</span>
-                            <span></span>
-                            <span>$2,000-3,000/mes</span>
+                            <div>$49/mo</div>
+                            <div>$2-3K/mo</div>
                         </div>
                         <div class="comparison-row">
-                            <span data-i18n="comparison-available">Disponible 24/7</span>
-                            <span></span>
-                            <span data-i18n="comparison-hours">Horario limitado</span>
+                            <div data-i18n="comparison-available">Available 24/7</div>
+                            <div data-i18n="comparison-hours">Limited hours</div>
                         </div>
                         <div class="comparison-row">
-                            <span data-i18n="comparison-instant">Empieza al instante</span>
-                            <span></span>
-                            <span data-i18n="comparison-weeks">Semanas para contratar</span>
+                            <div data-i18n="comparison-instant">Start instantly</div>
+                            <div data-i18n="comparison-weeks">Weeks to hire</div>
                         </div>
                     </div>
                     
-                    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" style="width: 100%;" aria-label="Start with Obra">
+                    <a href="https://wa.me/1XXXXXXXXXX?text=I%20want%20to%20start%20my%20free%20trial%20(DEMO)" class="pricing-cta">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
-                        <span data-i18n="cta-start">Empezar ahora</span>
+                        <span data-i18n="pricing-cta">Start Free Trial</span>
                     </a>
                     
-                    <div class="pricing-footer" data-i18n="pricing-footer">Menos de una hora de contador</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Referral -->
-        <section class="referral">
-            <div class="container">
-                <h2 data-i18n="referral-title">¿Conoces a un contratista que usaría esto?</h2>
-                <div class="referral-buttons">
-                    <a href="whatsapp://send?text=Mira%20esto%20-%20Obra%20maneja%20cotizaciones%20y%20recibos%20por%20WhatsApp.%20https://obra.app" class="share-button">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        <span data-i18n="share-whatsapp">Compartir por WhatsApp</span>
-                    </a>
-                    <button class="copy-button" onclick="copyLink()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        <span data-i18n="copy-link">Copiar enlace</span>
-                    </button>
+                    <div class="pricing-footer" data-i18n="pricing-footer">Cancel anytime. No contracts.</div>
                 </div>
             </div>
         </section>
@@ -1271,30 +1611,29 @@
         <!-- Final CTA -->
         <section class="final-cta">
             <div class="container">
-                <h2 data-i18n="final-cta-headline">Tu próximo cliente ya está esperando.</h2>
+                <h2 data-i18n="final-cta-h2">Your next customer is waiting.</h2>
                 <div class="final-cta-content">
-                    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" aria-label="Text Obra on WhatsApp">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://wa.me/1XXXXXXXXXX?text=Let's%20do%20this%20(DEMO)" class="final-cta-button">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
-                        <span data-i18n="cta-final">Escribe a Obra</span>
+                        <span data-i18n="final-cta-button">Text Obra Now</span>
                     </a>
                     <div class="qr-code">
-                        <svg width="150" height="150" viewBox="0 0 150 150">
-                            <!-- Simple QR placeholder - in production, generate actual QR for WhatsApp link -->
-                            <rect width="150" height="150" fill="white"/>
-                            <rect x="20" y="20" width="30" height="30" fill="black"/>
-                            <rect x="100" y="20" width="30" height="30" fill="black"/>
-                            <rect x="20" y="100" width="30" height="30" fill="black"/>
-                            <rect x="60" y="60" width="30" height="30" fill="black"/>
-                            <rect x="70" y="30" width="10" height="10" fill="black"/>
-                            <rect x="30" y="70" width="10" height="10" fill="black"/>
-                            <rect x="110" y="70" width="10" height="10" fill="black"/>
-                            <rect x="70" y="110" width="10" height="10" fill="black"/>
+                        <svg width="160" height="160" viewBox="0 0 160 160">
+                            <rect width="160" height="160" fill="white"/>
+                            <rect x="20" y="20" width="35" height="35" fill="black"/>
+                            <rect x="105" y="20" width="35" height="35" fill="black"/>
+                            <rect x="20" y="105" width="35" height="35" fill="black"/>
+                            <rect x="65" y="65" width="30" height="30" fill="black"/>
+                            <rect x="75" y="30" width="15" height="15" fill="black"/>
+                            <rect x="30" y="75" width="15" height="15" fill="black"/>
+                            <rect x="115" y="75" width="15" height="15" fill="black"/>
+                            <rect x="75" y="115" width="15" height="15" fill="black"/>
                         </svg>
                     </div>
                 </div>
-                <div class="bilingual-badge" data-i18n="bilingual">Bilingüe. English y español.</div>
+                <div class="final-cta-tagline" data-i18n="final-cta-tagline">Try it free. No app. No credit card. Just text.</div>
             </div>
         </section>
     </main>
@@ -1302,280 +1641,326 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p data-i18n="footer-text">Obra — Tu back office en WhatsApp</p>
-            <p><span data-i18n="footer-quantide">Un producto de</span> <a href="https://quantide.com">Quantide</a></p>
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Obra</div>
+                    <div class="footer-tagline" data-i18n="footer-tagline">Your back office on WhatsApp</div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" data-i18n="footer-privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer-terms">Terms</a>
+                    <a href="#" data-i18n="footer-contact">Contact</a>
+                    <a href="https://quantide.com" data-i18n="footer-about">About Quantide</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span data-i18n="footer-copyright">© 2026 Obra by Quantide</span>
+            </div>
         </div>
     </footer>
     
     <!-- Floating WhatsApp FAB -->
-    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="whatsapp-fab" id="whatsapp-fab" aria-label="Contact Obra on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%20(DEMO)" class="whatsapp-fab" id="whatsapp-fab" aria-label="Contact Obra on WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
     
     <script>
-        // i18n translations
-        const translations = {
-            en: {
-                'nav-cta': 'Text Obra',
-                'hero-headline': 'You\'re working. So is Obra.',
-                'hero-subhead': 'Quotes. Receipts. Leads. Follow-ups. Your entire back office — on WhatsApp. In 60 seconds.',
-                'online': 'online',
-                'hero-msg-1': 'Need a quote for a 1,200 sq ft reroof, 30-year shingle',
-                'hero-msg-2': 'Got it. Here\'s your estimate:<br>Materials .......... $4,140<br>Labor .............. $3,600<br>Tear-off ........... $1,200<br>─────────────────────<br>Total .............. $8,940<br><br>Want me to send this to your customer?',
-                'hero-msg-3': 'Yeah send it to 512-555-0199',
-                'hero-msg-4': '✅ Quote sent. I\'ll follow up in 48hrs if they don\'t respond.',
-                'cta-text': 'Text Obra',
-                'problem-1-title': 'You lose customers every day',
-                'problem-1-text': 'By 8pm it\'s too late. By the time you send a quote, they hired someone else.',
-                'problem-2-title': 'Receipts everywhere',
-                'problem-2-text': 'Car trunk. Wallet. Console. End of year, deductible expenses you\'ll never find.',
-                'problem-3-title': 'You can\'t afford help',
-                'problem-3-text': 'A bookkeeper costs $2,000/mo. An assistant $3,000. Meanwhile, you do everything.',
-                'solution-title': 'Meet Obra',
-                'receipt-placeholder': 'Receipt photo',
-                'solution-msg-receipt': 'Got it. $347.82 — lumber, Simpson ties, concrete mix. Filed under "Martinez job." Running total this month: $2,841.50',
-                'solution-msg-lead': 'Hey — Carlos just replied to your Facebook ad. He wants a quote for a bathroom remodel. Want me to handle it?',
-                'solution-msg-lead-reply': 'Yeah go ahead',
-                'solution-msg-lead-confirm': 'On it.',
-                'how-title': 'How it works',
-                'step-1-title': 'Text Obra',
-                'step-1-text': 'Send a message like you would to anyone. No new apps.',
-                'step-2-title': 'Obra does the work',
-                'step-2-text': 'Quotes, receipts, follow-ups. Everything organized, everything professional.',
-                'step-3-title': 'You close the job',
-                'step-3-text': 'Fast replies = more jobs. Saved receipts = more deductions.',
-                'quote-title': 'Professional quotes in seconds',
-                'quote-1-client': 'For: Maria Lopez',
-                'quote-1-item-1': 'Tile Installation 200 sq ft',
-                'quote-1-item-2': 'Grout & materials',
-                'quote-1-item-3': 'Labor prep',
-                'quote-2-client': 'For: James Wilson',
-                'quote-2-item-1': 'Interior paint 3BR 1,800 sq ft',
-                'quote-2-item-2': 'Trim & doors',
-                'quote-2-item-3': 'Prep & primer',
-                'quote-3-client': 'For: Sarah Chen',
-                'quote-3-item-1': 'Sod installation 2,500 sq ft',
-                'quote-3-item-2': 'Irrigation repair',
-                'quote-3-item-3': 'Mulch & cleanup',
-                'total': 'Total',
-                'powered-by': 'Powered by Obra',
-                'stat-1-number': '< 60 sec',
-                'stat-1-text': 'to send a quote',
-                'stat-2-text': 'not $2K for help',
-                'stat-3-number': 'Your phone',
-                'stat-3-text': 'The one you already have',
-                'pricing-title': 'Simple pricing',
-                'price-subtext': 'No contracts. Cancel anytime.',
-                'feature-1': 'Unlimited quotes',
-                'feature-2': 'Receipt & expense tracking',
-                'feature-3': 'Lead management & follow-ups',
-                'feature-4': 'Bilingual (English & Spanish)',
-                'feature-5': 'Works on WhatsApp — no new apps',
-                'comparison-vs': 'vs',
-                'comparison-hire': 'Hiring someone',
-                'comparison-available': 'Available 24/7',
-                'comparison-hours': 'Limited hours',
-                'comparison-instant': 'Start instantly',
-                'comparison-weeks': 'Weeks to hire',
-                'cta-start': 'Start now',
-                'pricing-footer': 'Less than one hour of bookkeeper time',
-                'referral-title': 'Know a contractor who\'d use this?',
-                'share-whatsapp': 'Share on WhatsApp',
-                'copy-link': 'Copy link',
-                'final-cta-headline': 'Your next customer is already waiting.',
-                'cta-final': 'Text Obra',
-                'bilingual': 'Bilingual. English y español.',
-                'footer-text': 'Obra — Your back office on WhatsApp',
-                'footer-quantide': 'A product by'
-            },
-            es: {
-                'nav-cta': 'Escribe a Obra',
-                'hero-headline': 'Estás trabajando. Obra también.',
-                'hero-subhead': 'Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa — en WhatsApp. En 60 segundos.',
-                'online': 'en línea',
-                'hero-msg-1': 'Necesito cotización para 1,200 pies² reroof, teja 30 años',
-                'hero-msg-2': 'Entendido. Aquí está tu estimado:<br>Materiales .......... $4,140<br>Mano de obra ...... $3,600<br>Desmontaje ......... $1,200<br>─────────────────────<br>Total .............. $8,940<br><br>¿Lo envío a tu cliente?',
-                'hero-msg-3': 'Sí envíalo a 512-555-0199',
-                'hero-msg-4': '✅ Cotización enviada. Le daré seguimiento en 48 horas si no responde.',
-                'cta-text': 'Escribe a Obra',
-                'problem-1-title': 'Pierdes clientes cada día',
-                'problem-1-text': 'Responder a las 8pm ya es tarde. Para cuando envías la cotización, ya contrataron a otro.',
-                'problem-2-title': 'Recibos en todas partes',
-                'problem-2-text': 'Cajuela del carro. Cartera. Consola. Al final del año, gastos deducibles que nunca encontrarás.',
-                'problem-3-title': 'No puedes contratar ayuda',
-                'problem-3-text': 'Un contador cuesta $2,000/mes. Un asistente $3,000. Mientras tanto, haces todo tú.',
-                'solution-title': 'Conoce a Obra',
-                'receipt-placeholder': 'Foto de recibo',
-                'solution-msg-receipt': 'Listo. $347.82 — madera, amarres Simpson, mezcla cemento. Archivado en "Trabajo Martinez." Total este mes: $2,841.50',
-                'solution-msg-lead': 'Hola — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?',
-                'solution-msg-lead-reply': 'Sí adelante',
-                'solution-msg-lead-confirm': 'En eso.',
-                'how-title': 'Cómo funciona',
-                'step-1-title': 'Escribe a Obra',
-                'step-1-text': 'Envía un mensaje como lo harías con cualquier persona. Sin apps nuevas.',
-                'step-2-title': 'Obra hace el trabajo',
-                'step-2-text': 'Cotizaciones, recibos, seguimientos. Todo organizado, todo profesional.',
-                'step-3-title': 'Tú cierras el trabajo',
-                'step-3-text': 'Respuestas rápidas = más trabajos. Recibos guardados = más deducciones.',
-                'quote-title': 'Cotizaciones profesionales en segundos',
-                'quote-1-client': 'Para: Maria Lopez',
-                'quote-1-item-1': 'Instalación azulejo 200 pies²',
-                'quote-1-item-2': 'Lechada y materiales',
-                'quote-1-item-3': 'Preparación mano obra',
-                'quote-2-client': 'Para: James Wilson',
-                'quote-2-item-1': 'Pintura interior 3 recámaras 1,800 pies²',
-                'quote-2-item-2': 'Molduras y puertas',
-                'quote-2-item-3': 'Prep y primer',
-                'quote-3-client': 'Para: Sarah Chen',
-                'quote-3-item-1': 'Instalación césped 2,500 pies²',
-                'quote-3-item-2': 'Reparación riego',
-                'quote-3-item-3': 'Mulch y limpieza',
-                'total': 'Total',
-                'powered-by': 'Powered by Obra',
-                'stat-1-number': '< 60 seg',
-                'stat-1-text': 'para enviar una cotización',
-                'stat-2-text': 'no $2K por ayuda',
-                'stat-3-number': 'Tu teléfono',
-                'stat-3-text': 'El que ya tienes',
-                'pricing-title': 'Precio simple',
-                'price-subtext': 'Sin contratos. Cancela cuando quieras.',
-                'feature-1': 'Cotizaciones ilimitadas',
-                'feature-2': 'Seguimiento de recibos y gastos',
-                'feature-3': 'Manejo de leads y seguimientos',
-                'feature-4': 'Bilingüe (inglés y español)',
-                'feature-5': 'Funciona en WhatsApp — sin apps nuevas',
-                'comparison-vs': 'vs',
-                'comparison-hire': 'Contratar alguien',
-                'comparison-available': 'Disponible 24/7',
-                'comparison-hours': 'Horario limitado',
-                'comparison-instant': 'Empieza al instante',
-                'comparison-weeks': 'Semanas para contratar',
-                'cta-start': 'Empezar ahora',
-                'pricing-footer': 'Menos de una hora de contador',
-                'referral-title': '¿Conoces a un contratista que usaría esto?',
-                'share-whatsapp': 'Compartir por WhatsApp',
-                'copy-link': 'Copiar enlace',
-                'final-cta-headline': 'Tu próximo cliente ya está esperando.',
-                'cta-final': 'Escribe a Obra',
-                'bilingual': 'Bilingüe. English y español.',
-                'footer-text': 'Obra — Tu back office en WhatsApp',
-                'footer-quantide': 'Un producto de'
-            }
-        };
-        
-        // Language toggle functionality
-        let currentLang = 'es';
-        
-        function detectLanguage() {
-            const browserLang = navigator.language || navigator.userLanguage;
-            const storedLang = localStorage.getItem('obra-lang');
-            
-            if (storedLang) {
-                return storedLang;
-            }
-            
-            return browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
+    // Bilingual toggle
+    const i18n = {
+        en: {
+            'nav-cta': 'Text Obra',
+            'hero-h1': 'You\'re working. So is Obra.',
+            'hero-subhead': 'Send professional quotes in 60 seconds. Track every receipt. Never lose a lead. All from WhatsApp.',
+            'status-online': 'online',
+            'hero-msg-1': 'Need a quote for a 1,200 sq ft reroof, 30-year shingle',
+            'hero-msg-2': `Got it. Here's your estimate:\nMaterials .......... $4,140\nLabor .............. $3,600\nTear-off ........... $1,200\n─────────────────────\nTotal .............. $8,940\n\nWant me to send this to your customer?`,
+            'hero-msg-3': 'Yeah send it to 512-555-0199',
+            'hero-msg-4': '✅ Sent! I\'ll follow up in 48hrs.',
+            'cta-primary': 'Try It Free',
+            'cta-ghost': 'See How It Works',
+            'social-proof-header': 'Trusted by 500+ contractors across Texas',
+            'stat-quotes': 'quotes sent',
+            'stat-trades': 'trades',
+            'stat-jobs': 'in jobs quoted',
+            'problem-title': 'You\'re losing money every day',
+            'problem-1-h3': 'Last month, you lost 3 jobs because you quoted too slow.',
+            'problem-1-p': 'By the time you got home and sent the quote, they\'d already hired someone else.',
+            'problem-2-h3': 'Your CPA charged you $800 extra because your receipts were in a shoebox.',
+            'problem-2-p': 'Half your deductions lost in the truck. The other half stuffed in your wallet.',
+            'problem-3-h3': 'You thought about hiring help. Then you saw the price tag.',
+            'problem-3-p': '$2,000/month for a bookkeeper. $3,000 for an assistant. Meanwhile, you\'re doing it all yourself.',
+            'solution-title': 'Meet Obra',
+            'feature-quotes': '60-Second Quotes',
+            'feature-receipts': 'Snap & Track Receipts',
+            'feature-leads': 'Never Miss a Lead',
+            'sol-quote-msg-1': 'Kitchen remodel. 250 sq ft tile, cabinets, countertops',
+            'sol-quote-msg-2': `Got it. Quick quote:\nTile install (250 sq ft) ... $3,000\nCabinets ................... $8,500\nCountertops (quartz) ....... $4,200\nLabor ...................... $5,800\n─────────────────────────────\nTotal ..................... $21,500\n\nReady to send?`,
+            'sol-receipt-msg-1': '📸 [Photo of Home Depot receipt]',
+            'sol-receipt-msg-2': '✅ Saved!\n$347.82 — lumber, Simpson ties, cement mix\nFiled under "Martinez Job"\nThis month\'s expenses: $2,841.50',
+            'sol-lead-msg-1': 'Heads up — Carlos responded to your Facebook ad. Wants a quote for bathroom remodel. Should I handle it?',
+            'sol-lead-msg-2': 'Yeah go ahead',
+            'sol-lead-msg-3': '✅ On it. I\'ll get the details and send you a draft quote in 10 minutes.',
+            'how-title': 'How It Works',
+            'step-1-h3': 'Text Obra on WhatsApp',
+            'step-1-p': 'No app download. No new login. Just message like you would a person.',
+            'step-2-h3': 'Describe your job in plain words',
+            'step-2-p': '"Need a quote for painting 3 bedrooms" — that\'s it. Obra handles the rest.',
+            'step-3-h3': 'Get a pro quote in 60 seconds',
+            'step-3-p': 'Professional estimate, ready to send to your customer. Fast enough to win the job.',
+            'quote-title': 'Professional quotes in seconds',
+            'quote-1-client': 'For: Maria Lopez',
+            'quote-1-date': 'Jan 15, 2026',
+            'quote-1-number': 'Quote #1247',
+            'quote-1-item-1': 'Tile installation (200 sq ft)',
+            'quote-1-item-2': 'Grout and materials',
+            'quote-1-item-3': 'Surface prep and labor',
+            'quote-2-client': 'For: James Wilson',
+            'quote-2-date': 'Jan 16, 2026',
+            'quote-2-number': 'Quote #2891',
+            'quote-2-item-1': 'Interior painting (3 bedrooms, 1,800 sq ft)',
+            'quote-2-item-2': 'Trim and doors',
+            'quote-2-item-3': 'Prep and primer',
+            'quote-3-client': 'For: Sarah Chen',
+            'quote-3-date': 'Jan 17, 2026',
+            'quote-3-number': 'Quote #445',
+            'quote-3-item-1': 'Sod installation (2,500 sq ft)',
+            'quote-3-item-2': 'Irrigation repair',
+            'quote-3-item-3': 'Mulch and cleanup',
+            'subtotal': 'Subtotal',
+            'tax': 'Tax (8.25%)',
+            'total': 'Total',
+            'terms-payment': '<strong>Payment:</strong> 50% deposit, balance on completion',
+            'terms-valid': '<strong>Valid:</strong> 30 days',
+            'powered-by': 'Powered by Obra',
+            'industry-title': 'Built for your trade',
+            'tag-painting': 'Painting',
+            'tag-plumbing': 'Plumbing',
+            'tag-electrical': 'Electrical',
+            'tag-landscaping': 'Landscaping',
+            'tag-roofing': 'Roofing',
+            'tag-handyman': 'Handyman',
+            'tag-tile': 'Tile',
+            'tag-hvac': 'HVAC',
+            'tag-carpentry': 'Carpentry',
+            'tag-remodeling': 'Remodeling',
+            'testimonials-title': 'What contractors are saying',
+            'testimonial-1-text': '"I used to spend 2 hours every night doing quotes. Now I send them from the truck in 60 seconds. Game changer."',
+            'testimonial-1-trade': 'Painting',
+            'testimonial-1-city': 'Houston, TX',
+            'testimonial-2-text': '"My CPA loves me now. All my receipts organized automatically. Tax season used to be a nightmare."',
+            'testimonial-2-trade': 'Landscaping',
+            'testimonial-2-city': 'Austin, TX',
+            'testimonial-3-text': '"I win more jobs now because I\'m the first one to send a quote. Obra pays for itself 10x over."',
+            'testimonial-3-trade': 'Tile & Flooring',
+            'testimonial-3-city': 'San Antonio, TX',
+            'pricing-title': 'Simple pricing',
+            'price-period': '/mo',
+            'price-trial': 'Try free for 14 days — no credit card required',
+            'pricing-feature-1': 'Unlimited quotes',
+            'pricing-feature-2': 'Receipt tracking & expense management',
+            'pricing-feature-3': 'Lead management & follow-ups',
+            'pricing-feature-4': 'Bilingual (English & Spanish)',
+            'pricing-feature-5': 'Works in WhatsApp — no new apps',
+            'comparison-vs': 'Office Help',
+            'comparison-available': 'Available 24/7',
+            'comparison-hours': 'Limited hours',
+            'comparison-instant': 'Start instantly',
+            'comparison-weeks': 'Weeks to hire',
+            'pricing-cta': 'Start Free Trial',
+            'pricing-footer': 'Cancel anytime. No contracts.',
+            'final-cta-h2': 'Your next customer is waiting.',
+            'final-cta-button': 'Text Obra Now',
+            'final-cta-tagline': 'Try it free. No app. No credit card. Just text.',
+            'footer-tagline': 'Your back office on WhatsApp',
+            'footer-privacy': 'Privacy Policy',
+            'footer-terms': 'Terms',
+            'footer-contact': 'Contact',
+            'footer-about': 'About Quantide',
+            'footer-copyright': '© 2026 Obra by Quantide'
+        },
+        es: {
+            'nav-cta': 'Escribe a Obra',
+            'hero-h1': 'Estás trabajando. Obra también.',
+            'hero-subhead': 'Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa — en WhatsApp. En 60 segundos.',
+            'status-online': 'en línea',
+            'hero-msg-1': 'Necesito cotización para 1,200 pies² reroof, teja 30 años',
+            'hero-msg-2': `Entendido. Aquí está tu estimado:\nMateriales .......... $4,140\nMano de obra ...... $3,600\nDesmontaje ......... $1,200\n─────────────────────\nTotal .............. $8,940\n\n¿Lo envío a tu cliente?`,
+            'hero-msg-3': 'Sí envíalo a 512-555-0199',
+            'hero-msg-4': '✅ Cotización enviada. Le daré seguimiento en 48 horas.',
+            'cta-primary': 'Pruébalo Gratis',
+            'cta-ghost': 'Ver Cómo Funciona',
+            'social-proof-header': 'Más de 500 contratistas en Texas confían en Obra',
+            'stat-quotes': 'cotizaciones enviadas',
+            'stat-trades': 'oficios',
+            'stat-jobs': 'en trabajos cotizados',
+            'problem-title': 'Estás perdiendo dinero cada día',
+            'problem-1-h3': 'El mes pasado, perdiste 3 trabajos por cotizar muy lento.',
+            'problem-1-p': 'Para cuando llegaste a casa y enviaste la cotización, ya habían contratado a otro.',
+            'problem-2-h3': 'Tu contador te cobró $800 extra porque tus recibos estaban en una caja.',
+            'problem-2-p': 'La mitad de tus deducciones perdidas en la camioneta. La otra mitad en tu cartera.',
+            'problem-3-h3': 'Pensaste en contratar ayuda. Luego viste el precio.',
+            'problem-3-p': '$2,000/mes por un contador. $3,000 por un asistente. Mientras tanto, lo haces todo tú.',
+            'solution-title': 'Conoce a Obra',
+            'feature-quotes': 'Cotizaciones en 60 Segundos',
+            'feature-receipts': 'Captura y Organiza Recibos',
+            'feature-leads': 'Nunca Pierdas un Cliente',
+            'sol-quote-msg-1': 'Remodelación de cocina. 250 pies² azulejo, gabinetes, cubiertas',
+            'sol-quote-msg-2': `Entendido. Cotización rápida:\nInstalación azulejo (250 pies²) ... $3,000\nGabinetes .......................... $8,500\nCubiertas (cuarzo) ................. $4,200\nMano de obra ....................... $5,800\n─────────────────────────────────────\nTotal .............................. $21,500\n\n¿Listo para enviar?`,
+            'sol-receipt-msg-1': '📸 [Foto de recibo Home Depot]',
+            'sol-receipt-msg-2': '✅ Guardado!\n$347.82 — madera, amarres Simpson, mezcla cemento\nArchivado en "Trabajo Martinez"\nGastos este mes: $2,841.50',
+            'sol-lead-msg-1': 'Aviso — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?',
+            'sol-lead-msg-2': 'Sí adelante',
+            'sol-lead-msg-3': '✅ En eso. Obtendré los detalles y te enviaré un borrador de cotización en 10 minutos.',
+            'how-title': 'Cómo funciona',
+            'step-1-h3': 'Escribe a Obra en WhatsApp',
+            'step-1-p': 'Sin descargar apps. Sin nuevos inicios de sesión. Solo escribe como lo harías con cualquier persona.',
+            'step-2-h3': 'Describe tu trabajo con palabras simples',
+            'step-2-p': '"Necesito cotización para pintar 3 recámaras" — eso es todo. Obra se encarga del resto.',
+            'step-3-h3': 'Obtén una cotización profesional en 60 segundos',
+            'step-3-p': 'Estimado profesional, listo para enviar a tu cliente. Lo suficientemente rápido para ganar el trabajo.',
+            'quote-title': 'Cotizaciones profesionales en segundos',
+            'quote-1-client': 'Para: María López',
+            'quote-1-date': '15 ene 2026',
+            'quote-1-number': 'Cotización #1247',
+            'quote-1-item-1': 'Instalación azulejo (200 pies²)',
+            'quote-1-item-2': 'Lechada y materiales',
+            'quote-1-item-3': 'Preparación y mano de obra',
+            'quote-2-client': 'Para: James Wilson',
+            'quote-2-date': '16 ene 2026',
+            'quote-2-number': 'Cotización #2891',
+            'quote-2-item-1': 'Pintura interior (3 recámaras, 1,800 pies²)',
+            'quote-2-item-2': 'Molduras y puertas',
+            'quote-2-item-3': 'Preparación y primer',
+            'quote-3-client': 'Para: Sarah Chen',
+            'quote-3-date': '17 ene 2026',
+            'quote-3-number': 'Cotización #445',
+            'quote-3-item-1': 'Instalación césped (2,500 pies²)',
+            'quote-3-item-2': 'Reparación riego',
+            'quote-3-item-3': 'Mulch y limpieza',
+            'subtotal': 'Subtotal',
+            'tax': 'Impuesto (8.25%)',
+            'total': 'Total',
+            'terms-payment': '<strong>Pago:</strong> 50% depósito, saldo al finalizar',
+            'terms-valid': '<strong>Vigencia:</strong> 30 días',
+            'powered-by': 'Hecho con Obra',
+            'industry-title': 'Hecho para tu oficio',
+            'tag-painting': 'Pintura',
+            'tag-plumbing': 'Plomería',
+            'tag-electrical': 'Electricidad',
+            'tag-landscaping': 'Jardinería',
+            'tag-roofing': 'Techos',
+            'tag-handyman': 'Mantenimiento',
+            'tag-tile': 'Azulejo',
+            'tag-hvac': 'HVAC',
+            'tag-carpentry': 'Carpintería',
+            'tag-remodeling': 'Remodelación',
+            'testimonials-title': 'Lo que dicen los contratistas',
+            'testimonial-1-text': '"Solía pasar 2 horas cada noche haciendo cotizaciones. Ahora las envío desde la camioneta en 60 segundos. Cambió todo."',
+            'testimonial-1-trade': 'Pintura',
+            'testimonial-1-city': 'Houston, TX',
+            'testimonial-2-text': '"Mi contador me ama ahora. Todos mis recibos organizados automáticamente. La temporada de impuestos solía ser una pesadilla."',
+            'testimonial-2-trade': 'Jardinería',
+            'testimonial-2-city': 'Austin, TX',
+            'testimonial-3-text': '"Gano más trabajos ahora porque soy el primero en enviar una cotización. Obra se paga solo 10 veces."',
+            'testimonial-3-trade': 'Azulejo y Pisos',
+            'testimonial-3-city': 'San Antonio, TX',
+            'pricing-title': 'Precio simple',
+            'price-period': '/mes',
+            'price-trial': 'Prueba gratis 14 días — sin tarjeta de crédito',
+            'pricing-feature-1': 'Cotizaciones ilimitadas',
+            'pricing-feature-2': 'Seguimiento de recibos y gastos',
+            'pricing-feature-3': 'Gestión de clientes y seguimientos',
+            'pricing-feature-4': 'Bilingüe (inglés y español)',
+            'pricing-feature-5': 'Funciona en WhatsApp — sin apps nuevas',
+            'comparison-vs': 'Ayuda de Oficina',
+            'comparison-available': 'Disponible 24/7',
+            'comparison-hours': 'Horario limitado',
+            'comparison-instant': 'Empieza al instante',
+            'comparison-weeks': 'Semanas para contratar',
+            'pricing-cta': 'Empezar Prueba Gratis',
+            'pricing-footer': 'Cancela en cualquier momento. Sin contratos.',
+            'final-cta-h2': 'Tu próximo cliente ya está esperando.',
+            'final-cta-button': 'Escribe a Obra Ahora',
+            'final-cta-tagline': 'Prueba gratis. Sin app. Sin tarjeta. Solo escribe.',
+            'footer-tagline': 'Tu oficina en WhatsApp',
+            'footer-privacy': 'Privacidad',
+            'footer-terms': 'Términos',
+            'footer-contact': 'Contacto',
+            'footer-about': 'Sobre Quantide',
+            'footer-copyright': '© 2026 Obra por Quantide'
         }
+    };
+    
+    // Get stored or browser language
+    let currentLang = localStorage.getItem('obra-lang') || 
+                      (navigator.language.startsWith('es') ? 'es' : 'en');
+    
+    // Apply translations
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('obra-lang', lang);
+        document.documentElement.lang = lang;
         
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('obra-lang', lang);
-            document.documentElement.lang = lang;
-            
-            // Update all i18n elements
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+        // Update all i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[lang][key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = i18n[lang][key];
+                } else {
+                    el.innerHTML = i18n[lang][key];
                 }
-            });
-            
-            // Update active language button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            
-            // Update meta tags
-            if (lang === 'en') {
-                document.title = 'Obra — Your back office on WhatsApp';
-                document.querySelector('meta[name="description"]').content = 'Quotes. Receipts. Leads. Follow-ups. Your entire back office on WhatsApp. In 60 seconds.';
-            } else {
-                document.title = 'Obra — Tu back office en WhatsApp';
-                document.querySelector('meta[name="description"]').content = 'Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp. En 60 segundos.';
             }
-        }
-        
-        // Initialize language
-        currentLang = detectLanguage();
-        setLanguage(currentLang);
-        
-        // Language toggle click handlers
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(btn.getAttribute('data-lang'));
-            });
         });
         
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
+        // Update active button
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+    }
+    
+    // Language toggle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+    
+    // Initialize
+    setLanguage(currentLang);
+    
+    // Scroll animations (enhancement only, content visible by default)
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animate-in');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
         
-        // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
-        
-        // Floating WhatsApp FAB
-        const fab = document.getElementById('whatsapp-fab');
-        const hero = document.querySelector('.hero');
-        let fabShown = false;
-        
-        window.addEventListener('scroll', () => {
-            const heroBottom = hero.offsetTop + hero.offsetHeight;
-            const scrolled = window.pageYOffset;
-            
-            if (scrolled > heroBottom && !fabShown) {
-                fab.classList.add('visible', 'pulse');
-                fabShown = true;
-                setTimeout(() => {
-                    fab.classList.remove('pulse');
-                }, 4000);
-            } else if (scrolled <= heroBottom && fabShown) {
-                fab.classList.remove('visible');
-                fabShown = false;
-            }
-        });
-        
-        // Copy link functionality
-        function copyLink() {
-            const url = 'https://obra.app';
-            navigator.clipboard.writeText(url).then(() => {
-                const btn = document.querySelector('.copy-button span');
-                const originalText = btn.textContent;
-                btn.textContent = currentLang === 'en' ? 'Copied!' : '¡Copiado!';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 2000);
-            });
+    }
+    
+    // Floating WhatsApp button
+    const fab = document.getElementById('whatsapp-fab');
+    let fabShown = false;
+    
+    window.addEventListener('scroll', () => {
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+        if (window.scrollY > heroHeight && !fabShown) {
+            fab.classList.add('visible', 'pulse');
+            fabShown = true;
+            setTimeout(() => fab.classList.remove('pulse'), 2000);
+        } else if (window.scrollY <= heroHeight && fabShown) {
+            fab.classList.remove('visible');
+            fabShown = false;
         }
-        
-        // Load Inter font asynchronously
-        const fontLink = document.createElement('link');
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
-        fontLink.rel = 'stylesheet';
-        document.head.appendChild(fontLink);
+    });
     </script>
 </body>
 </html>
