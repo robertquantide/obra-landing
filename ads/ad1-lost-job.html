@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD 1: The Lost Job</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .split-container {
+            flex: 1;
+            display: flex;
+        }
+        .left-side {
+            flex: 1;
+            background: linear-gradient(135deg, #1B8A2A 0%, #146820 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+        }
+        .phone-icon {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: buzz 0.5s infinite;
+        }
+        @keyframes buzz {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px) rotate(-5deg); }
+            75% { transform: translateX(8px) rotate(5deg); }
+        }
+        .left-text {
+            color: white;
+            font-size: 56px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .right-side {
+            flex: 1;
+            background: #1A1A1A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+        .lost-amount {
+            color: #FF3B30;
+            font-size: 140px;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+        .lost-text {
+            color: #FF3B30;
+            font-size: 80px;
+            line-height: 1;
+        }
+        .footer {
+            height: 220px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 80px;
+        }
+        .brand-name {
+            color: #1B8A2A;
+            font-size: 90px;
+            line-height: 1;
+        }
+        .tagline {
+            color: #1A1A1A;
+            font-size: 38px;
+            text-align: center;
+            line-height: 1.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="split-container">
+            <div class="left-side">
+                <div class="phone-icon">📱</div>
+                <div class="left-text">CLIENT<br/>CALLING...</div>
+            </div>
+            <div class="right-side">
+                <div class="lost-amount">$4,800</div>
+                <div class="lost-text">LOST</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="logo-container">
+                <div class="logo">🏗️</div>
+                <div class="brand-name">OBRA</div>
+            </div>
+            <div class="tagline">Never lose a job to a slow quote again.</div>
+        </div>
+    </div>
+</body>
+</html>

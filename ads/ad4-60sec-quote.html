@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD 4: 60-Second Quote</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0A0A0A;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .whatsapp-bar {
+            background: #1B8A2A;
+            color: white;
+            font-size: 44px;
+            padding: 25px 30px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .chat-container {
+            flex: 1;
+            background: #E5DDD5;
+            border-radius: 0 0 20px 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 25px 30px;
+            border-radius: 15px;
+            font-size: 32px;
+            line-height: 1.4;
+            position: relative;
+            font-weight: 600;
+        }
+        .message.sent {
+            background: #DCF8C6;
+            margin-left: auto;
+            color: #1A1A1A;
+        }
+        .message.received {
+            background: white;
+            margin-right: auto;
+            color: #1A1A1A;
+        }
+        .quote-box {
+            background: white;
+            border-left: 6px solid #1B8A2A;
+            padding: 25px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        .quote-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 28px;
+        }
+        .quote-total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 3px solid #1B8A2A;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            font-size: 36px;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .footer-text {
+            color: #FFD600;
+            font-size: 64px;
+            font-weight: 800;
+        }
+        .logo-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .logo {
+            font-size: 60px;
+        }
+        .brand {
+            color: white;
+            font-size: 70px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="whatsapp-bar">
+                💬 OBRA
+            </div>
+            <div class="chat-container">
+                <div class="message sent">
+                    Need a quote for 1200 sq ft reroof
+                </div>
+                <div class="message received">
+                    Got it! Let me put that together for you...
+                    <div class="quote-box">
+                        <div class="quote-line">
+                            <span>Materials</span>
+                            <span>$3,600</span>
+                        </div>
+                        <div class="quote-line">
+                            <span>Labor (2 days)</span>
+                            <span>$2,800</span>
+                        </div>
+                        <div class="quote-line">
+                            <span>Disposal</span>
+                            <span>$400</span>
+                        </div>
+                        <div class="quote-total">
+                            <span>TOTAL</span>
+                            <span>$6,800</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-text">60 SECONDS</div>
+            <div class="logo-line">
+                <div class="logo">🏗️</div>
+                <div class="brand">OBRA</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

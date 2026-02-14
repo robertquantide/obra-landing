@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD 3: The $99 Office Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            background: #FFD600;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header-text {
+            color: #1A1A1A;
+            font-size: 64px;
+            line-height: 1.2;
+        }
+        .comparison-container {
+            flex: 1;
+            display: flex;
+            gap: 40px;
+        }
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .card.bad {
+            background: #1A1A1A;
+        }
+        .card.good {
+            background: #1B8A2A;
+            border: 8px solid #FFD600;
+        }
+        .card-icon {
+            font-size: 100px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .card.bad .card-title {
+            color: white;
+        }
+        .card.good .card-title {
+            color: white;
+        }
+        .price {
+            font-size: 80px;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1;
+        }
+        .card.bad .price {
+            color: #FF3B30;
+        }
+        .card.good .price {
+            color: #FFD600;
+        }
+        .features {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .feature {
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .card.bad .feature {
+            color: #FF3B30;
+        }
+        .card.good .feature {
+            color: white;
+        }
+        .check {
+            font-size: 44px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #1A1A1A;
+            font-size: 52px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-text">NEED OFFICE HELP?</div>
+        </div>
+        <div class="comparison-container">
+            <div class="card bad">
+                <div class="card-icon">👤</div>
+                <div class="card-title">OFFICE<br/>HELP</div>
+                <div class="price">$3,000<br/>/mo</div>
+                <div class="features">
+                    <div class="feature">❌ Calls in sick</div>
+                    <div class="feature">❌ Takes vacation</div>
+                    <div class="feature">❌ Quits</div>
+                </div>
+            </div>
+            <div class="card good">
+                <div class="card-icon">🏗️</div>
+                <div class="card-title">OBRA</div>
+                <div class="price">$99<br/>/mo</div>
+                <div class="features">
+                    <div class="feature"><span class="check">✅</span> 24/7</div>
+                    <div class="feature"><span class="check">✅</span> Never quits</div>
+                    <div class="feature"><span class="check">✅</span> Always ready</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">YOUR BEST HIRE YET</div>
+    </div>
+</body>
+</html>
