@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obra — Tu back office en WhatsApp</title>
+    <meta name="description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp. En 60 segundos.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://obra.app/">
+    <meta property="og:title" content="Obra — Tu back office en WhatsApp">
+    <meta property="og:description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Obra — Tu back office en WhatsApp">
+    <meta property="twitter:description" content="Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp.">
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        /* CSS Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --teal: #0D7377;
+            --teal-dark: #0a5a5d;
+            --yellow: #FFD600;
+            --gray: #4A4A4A;
+            --white: #FFFFFF;
+            --off-white: #F5F2EB;
+            --whatsapp: #25D366;
+            --dark-gray: #2A2A2A;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+            color: var(--gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Skip to content */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--teal);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        
+        .skip-to-content:focus {
+            top: 0;
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 40;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--teal);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .lang-toggle {
+            display: flex;
+            background: var(--off-white);
+            border-radius: 20px;
+            padding: 4px;
+            gap: 2px;
+        }
+        
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--gray);
+        }
+        
+        .lang-toggle button.active {
+            background: white;
+            color: var(--teal);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav-cta {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s;
+        }
+        
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            min-height: calc(100vh - 48px);
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 48px 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .hero-subhead {
+            font-size: 18px;
+            opacity: 0.95;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 9999px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* WhatsApp Chat Mockup */
+        .whatsapp-mockup {
+            background: #E5DDD5;
+            border-radius: 12px;
+            padding: 16px;
+            max-width: 400px;
+            margin: 32px auto 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .whatsapp-header {
+            background: var(--teal);
+            color: white;
+            padding: 12px;
+            border-radius: 8px 8px 0 0;
+            margin: -16px -16px 12px -16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .whatsapp-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .whatsapp-info h3 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .whatsapp-status {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            position: relative;
+            word-wrap: break-word;
+        }
+        
+        .message-user {
+            background: #DCF8C6;
+            align-self: flex-end;
+            border-radius: 8px 0 8px 8px;
+        }
+        
+        .message-obra {
+            background: white;
+            align-self: flex-start;
+            border-radius: 0 8px 8px 8px;
+        }
+        
+        .message-time {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 4px;
+            text-align: right;
+        }
+        
+        .message-obra .message-time {
+            text-align: left;
+        }
+        
+        /* Problem Strip */
+        .problem-strip {
+            background: var(--off-white);
+            padding: 64px 0;
+        }
+        
+        .problem-cards {
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 24px;
+            border-left: 4px solid var(--yellow);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .visible .problem-card:nth-child(1) {
+            transition-delay: 0s;
+        }
+        
+        .visible .problem-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        
+        .visible .problem-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        
+        .visible .problem-card {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .problem-card .emoji {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        
+        .problem-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--teal);
+        }
+        
+        .problem-card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            text-align: center;
+            color: var(--teal);
+            margin-bottom: 48px;
+        }
+        
+        .solution-demos {
+            display: grid;
+            gap: 48px;
+            margin-top: 32px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: var(--teal);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .how-it-works .section-title {
+            color: white;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 48px;
+            position: relative;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .visible .step:nth-child(1) {
+            transition-delay: 0s;
+        }
+        
+        .visible .step:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+        
+        .visible .step:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .visible .step {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .step-number {
+            background: var(--yellow);
+            color: var(--teal);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Quote Card Showcase */
+        .quote-showcase {
+            padding: 80px 0;
+            background: white;
+            position: relative;
+        }
+        
+        .quote-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .quote-cards-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin-top: 32px;
+        }
+        
+        .quote-cards-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .quote-cards {
+            display: flex;
+            gap: 24px;
+            padding: 20px 0;
+            min-width: min-content;
+        }
+        
+        .quote-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            min-width: 320px;
+            max-width: 360px;
+            transform: rotate(-1deg);
+            transition: transform 0.3s;
+        }
+        
+        .quote-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+        
+        .quote-card:nth-child(3) {
+            transform: rotate(-0.5deg);
+        }
+        
+        .quote-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+        }
+        
+        .quote-header {
+            background: var(--teal);
+            color: white;
+            padding: 16px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .quote-header h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        
+        .quote-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .quote-body {
+            padding: 20px;
+        }
+        
+        .quote-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .quote-item:last-of-type {
+            border-bottom: 2px solid var(--teal);
+            margin-bottom: 12px;
+        }
+        
+        .quote-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .quote-total .amount {
+            background: var(--yellow);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .quote-footer {
+            text-align: center;
+            padding: 12px;
+            background: var(--off-white);
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--off-white);
+            padding: 48px 0;
+        }
+        
+        .stats {
+            display: grid;
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat h3 {
+            font-size: 28px;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+        
+        .stat p {
+            font-size: 16px;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .pricing-card {
+            max-width: 440px;
+            margin: 32px auto 0;
+            background: white;
+            border: 2px solid var(--teal);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--teal);
+            text-align: center;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .price::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 12px;
+            background: var(--yellow);
+            opacity: 0.6;
+            z-index: -1;
+        }
+        
+        .price-subtext {
+            text-align: center;
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .features-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 16px;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--whatsapp);
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .comparison-table {
+            margin: 32px 0;
+            border-top: 2px solid var(--off-white);
+            padding-top: 24px;
+        }
+        
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--off-white);
+        }
+        
+        .comparison-row strong {
+            color: var(--teal);
+        }
+        
+        .pricing-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Referral */
+        .referral {
+            background: var(--off-white);
+            padding: 64px 0;
+            text-align: center;
+        }
+        
+        .referral h2 {
+            font-size: 24px;
+            color: var(--teal);
+            margin-bottom: 24px;
+        }
+        
+        .referral-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-button, .copy-button {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .copy-button {
+            background: var(--teal);
+        }
+        
+        .share-button:hover, .copy-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: var(--teal);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .final-cta-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: none;
+        }
+        
+        .bilingual-badge {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 16px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        
+        footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 50;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-fab.visible {
+            display: flex;
+        }
+        
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .whatsapp-fab.pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 56px;
+            }
+            
+            .hero-subhead {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 40px;
+            }
+            
+            body {
+                font-size: 18px;
+            }
+            
+            .hero-content {
+                flex-direction: row;
+                align-items: center;
+                gap: 64px;
+            }
+            
+            .hero-text {
+                flex: 1;
+            }
+            
+            .hero-mockup {
+                flex: 1;
+            }
+            
+            .problem-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .steps {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 48px;
+            }
+            
+            .step {
+                flex: 1;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .steps::before {
+                content: '';
+                position: absolute;
+                top: 24px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                border-top: 2px dashed rgba(255, 255, 255, 0.3);
+                z-index: 0;
+            }
+            
+            .step-number {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .quote-cards {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .qr-code {
+                display: block;
+            }
+            
+            .final-cta-content {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Obra</div>
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="nav-cta" aria-label="Contact Obra on WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span data-i18n="nav-cta">Escribe a Obra</span>
+            </a>
+        </div>
+    </nav>
+    
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero visible">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 data-i18n="hero-headline">Estás trabajando. Obra también.</h1>
+                        <p class="hero-subhead" data-i18n="hero-subhead">Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa — en WhatsApp. En 60 segundos.</p>
+                        <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" aria-label="Start conversation with Obra on WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            <span data-i18n="cta-text">Escribe a Obra</span>
+                        </a>
+                    </div>
+                    <div class="hero-mockup">
+                        <div class="whatsapp-mockup">
+                            <div class="whatsapp-header">
+                                <div class="whatsapp-avatar">🏗️</div>
+                                <div class="whatsapp-info">
+                                    <h3>Obra</h3>
+                                    <div class="whatsapp-status" data-i18n="online">en línea</div>
+                                </div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message message-user">
+                                    <div data-i18n="hero-msg-1">Necesito cotización para 1,200 pies² reroof, teja 30 años</div>
+                                    <div class="message-time">10:23</div>
+                                </div>
+                                <div class="message message-obra">
+                                    <div data-i18n="hero-msg-2">Entendido. Aquí está tu estimado:<br>
+                                    Materiales .......... $4,140<br>
+                                    Mano de obra ...... $3,600<br>
+                                    Desmontaje ......... $1,200<br>
+                                    ─────────────────────<br>
+                                    Total .............. $8,940<br><br>
+                                    ¿Lo envío a tu cliente?</div>
+                                    <div class="message-time">10:24</div>
+                                </div>
+                                <div class="message message-user">
+                                    <div data-i18n="hero-msg-3">Sí envíalo a 512-555-0199</div>
+                                    <div class="message-time">10:25</div>
+                                </div>
+                                <div class="message message-obra">
+                                    <div data-i18n="hero-msg-4">✅ Cotización enviada. Le daré seguimiento en 48 horas si no responde.</div>
+                                    <div class="message-time">10:25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Problem Strip -->
+        <section class="problem-strip">
+            <div class="container">
+                <div class="problem-cards">
+                    <div class="problem-card">
+                        <div class="emoji">📞</div>
+                        <h3 data-i18n="problem-1-title">Pierdes clientes cada día</h3>
+                        <p data-i18n="problem-1-text">Responder a las 8pm ya es tarde. Para cuando envías la cotización, ya contrataron a otro.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="emoji">🧾</div>
+                        <h3 data-i18n="problem-2-title">Recibos en todas partes</h3>
+                        <p data-i18n="problem-2-text">Cajuela del carro. Cartera. Consola. Al final del año, gastos deducibles que nunca encontrarás.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="emoji">💸</div>
+                        <h3 data-i18n="problem-3-title">No puedes contratar ayuda</h3>
+                        <p data-i18n="problem-3-text">Un contador cuesta $2,000/mes. Un asistente $3,000. Mientras tanto, haces todo tú.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Solution Section -->
+        <section class="solution">
+            <div class="container">
+                <h2 class="section-title" data-i18n="solution-title">Conoce a Obra</h2>
+                <div class="solution-demos">
+                    <div class="whatsapp-mockup" style="margin: 0 auto;">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-avatar">🏗️</div>
+                            <div class="whatsapp-info">
+                                <h3>Obra</h3>
+                                <div class="whatsapp-status" data-i18n="online">en línea</div>
+                            </div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message message-user">
+                                <div>📸 [<span data-i18n="receipt-placeholder">Foto de recibo</span>]</div>
+                                <div class="message-time">14:32</div>
+                            </div>
+                            <div class="message message-obra">
+                                <div data-i18n="solution-msg-receipt">Listo. $347.82 — madera, amarres Simpson, mezcla cemento. Archivado en "Trabajo Martinez." Total este mes: $2,841.50</div>
+                                <div class="message-time">14:32</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="whatsapp-mockup" style="margin: 0 auto;">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-avatar">🏗️</div>
+                            <div class="whatsapp-info">
+                                <h3>Obra</h3>
+                                <div class="whatsapp-status" data-i18n="online">en línea</div>
+                            </div>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message message-obra">
+                                <div data-i18n="solution-msg-lead">Hola — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?</div>
+                                <div class="message-time">09:15</div>
+                            </div>
+                            <div class="message message-user">
+                                <div data-i18n="solution-msg-lead-reply">Sí adelante</div>
+                                <div class="message-time">09:47</div>
+                            </div>
+                            <div class="message message-obra">
+                                <div>✅ <span data-i18n="solution-msg-lead-confirm">En eso.</span></div>
+                                <div class="message-time">09:47</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title" data-i18n="how-title">Cómo funciona</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 data-i18n="step-1-title">Escribe a Obra</h3>
+                            <p data-i18n="step-1-text">Envía un mensaje como lo harías con cualquier persona. Sin apps nuevas.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 data-i18n="step-2-title">Obra hace el trabajo</h3>
+                            <p data-i18n="step-2-text">Cotizaciones, recibos, seguimientos. Todo organizado, todo profesional.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 data-i18n="step-3-title">Tú cierras el trabajo</h3>
+                            <p data-i18n="step-3-text">Respuestas rápidas = más trabajos. Recibos guardados = más deducciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quote Card Showcase -->
+        <section class="quote-showcase">
+            <div class="container">
+                <h2 class="section-title" data-i18n="quote-title">Cotizaciones profesionales en segundos</h2>
+                <div class="quote-cards-container">
+                    <div class="quote-cards">
+                        <div class="quote-card">
+                            <div class="quote-header">
+                                <h3>Martinez Tile & Stone</h3>
+                                <p data-i18n="quote-1-client">Para: Maria Lopez</p>
+                            </div>
+                            <div class="quote-body">
+                                <div class="quote-item">
+                                    <span data-i18n="quote-1-item-1">Instalación azulejo 200 pies²</span>
+                                    <span>$2,400</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-1-item-2">Lechada y materiales</span>
+                                    <span>$340</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-1-item-3">Preparación mano obra</span>
+                                    <span>$280</span>
+                                </div>
+                                <div class="quote-total">
+                                    <span data-i18n="total">Total</span>
+                                    <span class="amount">$3,020</span>
+                                </div>
+                            </div>
+                            <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
+                        </div>
+                        
+                        <div class="quote-card">
+                            <div class="quote-header">
+                                <h3>Pro Finish Painting LLC</h3>
+                                <p data-i18n="quote-2-client">Para: James Wilson</p>
+                            </div>
+                            <div class="quote-body">
+                                <div class="quote-item">
+                                    <span data-i18n="quote-2-item-1">Pintura interior 3 recámaras 1,800 pies²</span>
+                                    <span>$3,200</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-2-item-2">Molduras y puertas</span>
+                                    <span>$800</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-2-item-3">Prep y primer</span>
+                                    <span>$600</span>
+                                </div>
+                                <div class="quote-total">
+                                    <span data-i18n="total">Total</span>
+                                    <span class="amount">$4,600</span>
+                                </div>
+                            </div>
+                            <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
+                        </div>
+                        
+                        <div class="quote-card">
+                            <div class="quote-header">
+                                <h3>Verde Landscaping</h3>
+                                <p data-i18n="quote-3-client">Para: Sarah Chen</p>
+                            </div>
+                            <div class="quote-body">
+                                <div class="quote-item">
+                                    <span data-i18n="quote-3-item-1">Instalación césped 2,500 pies²</span>
+                                    <span>$2,750</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-3-item-2">Reparación riego</span>
+                                    <span>$450</span>
+                                </div>
+                                <div class="quote-item">
+                                    <span data-i18n="quote-3-item-3">Mulch y limpieza</span>
+                                    <span>$380</span>
+                                </div>
+                                <div class="quote-total">
+                                    <span data-i18n="total">Total</span>
+                                    <span class="amount">$3,580</span>
+                                </div>
+                            </div>
+                            <div class="quote-footer" data-i18n="powered-by">Powered by Obra</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats">
+                    <div class="stat">
+                        <h3 data-i18n="stat-1-number">&lt; 60 seg</h3>
+                        <p data-i18n="stat-1-text">para enviar una cotización</p>
+                    </div>
+                    <div class="stat">
+                        <h3>$49/mes</h3>
+                        <p data-i18n="stat-2-text">no $2K por ayuda</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-i18n="stat-3-number">Tu teléfono</h3>
+                        <p data-i18n="stat-3-text">El que ya tienes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing -->
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title" data-i18n="pricing-title">Precio simple</h2>
+                <div class="pricing-card">
+                    <div class="price">$49<span style="font-size: 24px;">/mes</span></div>
+                    <div class="price-subtext" data-i18n="price-subtext">Sin contratos. Cancela cuando quieras.</div>
+                    
+                    <ul class="features-list">
+                        <li data-i18n="feature-1">Cotizaciones ilimitadas</li>
+                        <li data-i18n="feature-2">Seguimiento de recibos y gastos</li>
+                        <li data-i18n="feature-3">Manejo de leads y seguimientos</li>
+                        <li data-i18n="feature-4">Bilingüe (inglés y español)</li>
+                        <li data-i18n="feature-5">Funciona en WhatsApp — sin apps nuevas</li>
+                    </ul>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <span><strong>Obra</strong></span>
+                            <span data-i18n="comparison-vs">vs</span>
+                            <span data-i18n="comparison-hire">Contratar alguien</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span>$49/mes</span>
+                            <span></span>
+                            <span>$2,000-3,000/mes</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span data-i18n="comparison-available">Disponible 24/7</span>
+                            <span></span>
+                            <span data-i18n="comparison-hours">Horario limitado</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span data-i18n="comparison-instant">Empieza al instante</span>
+                            <span></span>
+                            <span data-i18n="comparison-weeks">Semanas para contratar</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" style="width: 100%;" aria-label="Start with Obra">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span data-i18n="cta-start">Empezar ahora</span>
+                    </a>
+                    
+                    <div class="pricing-footer" data-i18n="pricing-footer">Menos de una hora de contador</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Referral -->
+        <section class="referral">
+            <div class="container">
+                <h2 data-i18n="referral-title">¿Conoces a un contratista que usaría esto?</h2>
+                <div class="referral-buttons">
+                    <a href="whatsapp://send?text=Mira%20esto%20-%20Obra%20maneja%20cotizaciones%20y%20recibos%20por%20WhatsApp.%20https://obra.app" class="share-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span data-i18n="share-whatsapp">Compartir por WhatsApp</span>
+                    </a>
+                    <button class="copy-button" onclick="copyLink()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span data-i18n="copy-link">Copiar enlace</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h2 data-i18n="final-cta-headline">Tu próximo cliente ya está esperando.</h2>
+                <div class="final-cta-content">
+                    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="cta-button" aria-label="Text Obra on WhatsApp">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span data-i18n="cta-final">Escribe a Obra</span>
+                    </a>
+                    <div class="qr-code">
+                        <svg width="150" height="150" viewBox="0 0 150 150">
+                            <!-- Simple QR placeholder - in production, generate actual QR for WhatsApp link -->
+                            <rect width="150" height="150" fill="white"/>
+                            <rect x="20" y="20" width="30" height="30" fill="black"/>
+                            <rect x="100" y="20" width="30" height="30" fill="black"/>
+                            <rect x="20" y="100" width="30" height="30" fill="black"/>
+                            <rect x="60" y="60" width="30" height="30" fill="black"/>
+                            <rect x="70" y="30" width="10" height="10" fill="black"/>
+                            <rect x="30" y="70" width="10" height="10" fill="black"/>
+                            <rect x="110" y="70" width="10" height="10" fill="black"/>
+                            <rect x="70" y="110" width="10" height="10" fill="black"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="bilingual-badge" data-i18n="bilingual">Bilingüe. English y español.</div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="footer-text">Obra — Tu back office en WhatsApp</p>
+            <p><span data-i18n="footer-quantide">Un producto de</span> <a href="https://quantide.com">Quantide</a></p>
+        </div>
+    </footer>
+    
+    <!-- Floating WhatsApp FAB -->
+    <a href="https://wa.me/1XXXXXXXXXX?text=Hey%20Obra%2C%20I%20want%20to%20try%20it" class="whatsapp-fab" id="whatsapp-fab" aria-label="Contact Obra on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+    
+    <script>
+        // i18n translations
+        const translations = {
+            en: {
+                'nav-cta': 'Text Obra',
+                'hero-headline': 'You\'re working. So is Obra.',
+                'hero-subhead': 'Quotes. Receipts. Leads. Follow-ups. Your entire back office — on WhatsApp. In 60 seconds.',
+                'online': 'online',
+                'hero-msg-1': 'Need a quote for a 1,200 sq ft reroof, 30-year shingle',
+                'hero-msg-2': 'Got it. Here\'s your estimate:<br>Materials .......... $4,140<br>Labor .............. $3,600<br>Tear-off ........... $1,200<br>─────────────────────<br>Total .............. $8,940<br><br>Want me to send this to your customer?',
+                'hero-msg-3': 'Yeah send it to 512-555-0199',
+                'hero-msg-4': '✅ Quote sent. I\'ll follow up in 48hrs if they don\'t respond.',
+                'cta-text': 'Text Obra',
+                'problem-1-title': 'You lose customers every day',
+                'problem-1-text': 'By 8pm it\'s too late. By the time you send a quote, they hired someone else.',
+                'problem-2-title': 'Receipts everywhere',
+                'problem-2-text': 'Car trunk. Wallet. Console. End of year, deductible expenses you\'ll never find.',
+                'problem-3-title': 'You can\'t afford help',
+                'problem-3-text': 'A bookkeeper costs $2,000/mo. An assistant $3,000. Meanwhile, you do everything.',
+                'solution-title': 'Meet Obra',
+                'receipt-placeholder': 'Receipt photo',
+                'solution-msg-receipt': 'Got it. $347.82 — lumber, Simpson ties, concrete mix. Filed under "Martinez job." Running total this month: $2,841.50',
+                'solution-msg-lead': 'Hey — Carlos just replied to your Facebook ad. He wants a quote for a bathroom remodel. Want me to handle it?',
+                'solution-msg-lead-reply': 'Yeah go ahead',
+                'solution-msg-lead-confirm': 'On it.',
+                'how-title': 'How it works',
+                'step-1-title': 'Text Obra',
+                'step-1-text': 'Send a message like you would to anyone. No new apps.',
+                'step-2-title': 'Obra does the work',
+                'step-2-text': 'Quotes, receipts, follow-ups. Everything organized, everything professional.',
+                'step-3-title': 'You close the job',
+                'step-3-text': 'Fast replies = more jobs. Saved receipts = more deductions.',
+                'quote-title': 'Professional quotes in seconds',
+                'quote-1-client': 'For: Maria Lopez',
+                'quote-1-item-1': 'Tile Installation 200 sq ft',
+                'quote-1-item-2': 'Grout & materials',
+                'quote-1-item-3': 'Labor prep',
+                'quote-2-client': 'For: James Wilson',
+                'quote-2-item-1': 'Interior paint 3BR 1,800 sq ft',
+                'quote-2-item-2': 'Trim & doors',
+                'quote-2-item-3': 'Prep & primer',
+                'quote-3-client': 'For: Sarah Chen',
+                'quote-3-item-1': 'Sod installation 2,500 sq ft',
+                'quote-3-item-2': 'Irrigation repair',
+                'quote-3-item-3': 'Mulch & cleanup',
+                'total': 'Total',
+                'powered-by': 'Powered by Obra',
+                'stat-1-number': '< 60 sec',
+                'stat-1-text': 'to send a quote',
+                'stat-2-text': 'not $2K for help',
+                'stat-3-number': 'Your phone',
+                'stat-3-text': 'The one you already have',
+                'pricing-title': 'Simple pricing',
+                'price-subtext': 'No contracts. Cancel anytime.',
+                'feature-1': 'Unlimited quotes',
+                'feature-2': 'Receipt & expense tracking',
+                'feature-3': 'Lead management & follow-ups',
+                'feature-4': 'Bilingual (English & Spanish)',
+                'feature-5': 'Works on WhatsApp — no new apps',
+                'comparison-vs': 'vs',
+                'comparison-hire': 'Hiring someone',
+                'comparison-available': 'Available 24/7',
+                'comparison-hours': 'Limited hours',
+                'comparison-instant': 'Start instantly',
+                'comparison-weeks': 'Weeks to hire',
+                'cta-start': 'Start now',
+                'pricing-footer': 'Less than one hour of bookkeeper time',
+                'referral-title': 'Know a contractor who\'d use this?',
+                'share-whatsapp': 'Share on WhatsApp',
+                'copy-link': 'Copy link',
+                'final-cta-headline': 'Your next customer is already waiting.',
+                'cta-final': 'Text Obra',
+                'bilingual': 'Bilingual. English y español.',
+                'footer-text': 'Obra — Your back office on WhatsApp',
+                'footer-quantide': 'A product by'
+            },
+            es: {
+                'nav-cta': 'Escribe a Obra',
+                'hero-headline': 'Estás trabajando. Obra también.',
+                'hero-subhead': 'Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa — en WhatsApp. En 60 segundos.',
+                'online': 'en línea',
+                'hero-msg-1': 'Necesito cotización para 1,200 pies² reroof, teja 30 años',
+                'hero-msg-2': 'Entendido. Aquí está tu estimado:<br>Materiales .......... $4,140<br>Mano de obra ...... $3,600<br>Desmontaje ......... $1,200<br>─────────────────────<br>Total .............. $8,940<br><br>¿Lo envío a tu cliente?',
+                'hero-msg-3': 'Sí envíalo a 512-555-0199',
+                'hero-msg-4': '✅ Cotización enviada. Le daré seguimiento en 48 horas si no responde.',
+                'cta-text': 'Escribe a Obra',
+                'problem-1-title': 'Pierdes clientes cada día',
+                'problem-1-text': 'Responder a las 8pm ya es tarde. Para cuando envías la cotización, ya contrataron a otro.',
+                'problem-2-title': 'Recibos en todas partes',
+                'problem-2-text': 'Cajuela del carro. Cartera. Consola. Al final del año, gastos deducibles que nunca encontrarás.',
+                'problem-3-title': 'No puedes contratar ayuda',
+                'problem-3-text': 'Un contador cuesta $2,000/mes. Un asistente $3,000. Mientras tanto, haces todo tú.',
+                'solution-title': 'Conoce a Obra',
+                'receipt-placeholder': 'Foto de recibo',
+                'solution-msg-receipt': 'Listo. $347.82 — madera, amarres Simpson, mezcla cemento. Archivado en "Trabajo Martinez." Total este mes: $2,841.50',
+                'solution-msg-lead': 'Hola — Carlos respondió a tu anuncio de Facebook. Quiere cotización para remodelación de baño. ¿Lo manejo?',
+                'solution-msg-lead-reply': 'Sí adelante',
+                'solution-msg-lead-confirm': 'En eso.',
+                'how-title': 'Cómo funciona',
+                'step-1-title': 'Escribe a Obra',
+                'step-1-text': 'Envía un mensaje como lo harías con cualquier persona. Sin apps nuevas.',
+                'step-2-title': 'Obra hace el trabajo',
+                'step-2-text': 'Cotizaciones, recibos, seguimientos. Todo organizado, todo profesional.',
+                'step-3-title': 'Tú cierras el trabajo',
+                'step-3-text': 'Respuestas rápidas = más trabajos. Recibos guardados = más deducciones.',
+                'quote-title': 'Cotizaciones profesionales en segundos',
+                'quote-1-client': 'Para: Maria Lopez',
+                'quote-1-item-1': 'Instalación azulejo 200 pies²',
+                'quote-1-item-2': 'Lechada y materiales',
+                'quote-1-item-3': 'Preparación mano obra',
+                'quote-2-client': 'Para: James Wilson',
+                'quote-2-item-1': 'Pintura interior 3 recámaras 1,800 pies²',
+                'quote-2-item-2': 'Molduras y puertas',
+                'quote-2-item-3': 'Prep y primer',
+                'quote-3-client': 'Para: Sarah Chen',
+                'quote-3-item-1': 'Instalación césped 2,500 pies²',
+                'quote-3-item-2': 'Reparación riego',
+                'quote-3-item-3': 'Mulch y limpieza',
+                'total': 'Total',
+                'powered-by': 'Powered by Obra',
+                'stat-1-number': '< 60 seg',
+                'stat-1-text': 'para enviar una cotización',
+                'stat-2-text': 'no $2K por ayuda',
+                'stat-3-number': 'Tu teléfono',
+                'stat-3-text': 'El que ya tienes',
+                'pricing-title': 'Precio simple',
+                'price-subtext': 'Sin contratos. Cancela cuando quieras.',
+                'feature-1': 'Cotizaciones ilimitadas',
+                'feature-2': 'Seguimiento de recibos y gastos',
+                'feature-3': 'Manejo de leads y seguimientos',
+                'feature-4': 'Bilingüe (inglés y español)',
+                'feature-5': 'Funciona en WhatsApp — sin apps nuevas',
+                'comparison-vs': 'vs',
+                'comparison-hire': 'Contratar alguien',
+                'comparison-available': 'Disponible 24/7',
+                'comparison-hours': 'Horario limitado',
+                'comparison-instant': 'Empieza al instante',
+                'comparison-weeks': 'Semanas para contratar',
+                'cta-start': 'Empezar ahora',
+                'pricing-footer': 'Menos de una hora de contador',
+                'referral-title': '¿Conoces a un contratista que usaría esto?',
+                'share-whatsapp': 'Compartir por WhatsApp',
+                'copy-link': 'Copiar enlace',
+                'final-cta-headline': 'Tu próximo cliente ya está esperando.',
+                'cta-final': 'Escribe a Obra',
+                'bilingual': 'Bilingüe. English y español.',
+                'footer-text': 'Obra — Tu back office en WhatsApp',
+                'footer-quantide': 'Un producto de'
+            }
+        };
+        
+        // Language toggle functionality
+        let currentLang = 'es';
+        
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const storedLang = localStorage.getItem('obra-lang');
+            
+            if (storedLang) {
+                return storedLang;
+            }
+            
+            return browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
+        }
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('obra-lang', lang);
+            document.documentElement.lang = lang;
+            
+            // Update all i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            
+            // Update meta tags
+            if (lang === 'en') {
+                document.title = 'Obra — Your back office on WhatsApp';
+                document.querySelector('meta[name="description"]').content = 'Quotes. Receipts. Leads. Follow-ups. Your entire back office on WhatsApp. In 60 seconds.';
+            } else {
+                document.title = 'Obra — Tu back office en WhatsApp';
+                document.querySelector('meta[name="description"]').content = 'Cotizaciones. Recibos. Clientes. Seguimientos. Tu oficina completa en WhatsApp. En 60 segundos.';
+            }
+        }
+        
+        // Initialize language
+        currentLang = detectLanguage();
+        setLanguage(currentLang);
+        
+        // Language toggle click handlers
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.getAttribute('data-lang'));
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Floating WhatsApp FAB
+        const fab = document.getElementById('whatsapp-fab');
+        const hero = document.querySelector('.hero');
+        let fabShown = false;
+        
+        window.addEventListener('scroll', () => {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            const scrolled = window.pageYOffset;
+            
+            if (scrolled > heroBottom && !fabShown) {
+                fab.classList.add('visible', 'pulse');
+                fabShown = true;
+                setTimeout(() => {
+                    fab.classList.remove('pulse');
+                }, 4000);
+            } else if (scrolled <= heroBottom && fabShown) {
+                fab.classList.remove('visible');
+                fabShown = false;
+            }
+        });
+        
+        // Copy link functionality
+        function copyLink() {
+            const url = 'https://obra.app';
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.copy-button span');
+                const originalText = btn.textContent;
+                btn.textContent = currentLang === 'en' ? 'Copied!' : '¡Copiado!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Load Inter font asynchronously
+        const fontLink = document.createElement('link');
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+        fontLink.rel = 'stylesheet';
+        document.head.appendChild(fontLink);
+    </script>
+</body>
+</html>
