@@ -1282,6 +1282,139 @@
         }
         
         /* Desktop Styles */
+        /* ===== FEATURE TIERS ===== */
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 16px;
+        }
+        .tier-core { background: var(--green-light); color: var(--green-dark); }
+        .tier-smart { background: #E8F0FE; color: #1a56db; }
+        .tier-pro { background: var(--yellow); color: #5C3D00; }
+        .section-tier-header { text-align: center; margin-bottom: 8px; }
+
+        /* Smart Features */
+        .smart-section { background: #F5F8FF; padding: 80px 0; }
+
+        .feature-grid { display: grid; gap: 24px; margin-top: 48px; }
+
+        @media (min-width: 768px) {
+            .feature-grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+        }
+        .feature-card:hover { transform: translateY(-4px); }
+
+        .feature-card-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; margin-bottom: 20px;
+        }
+        .feature-card-icon-blue { background: #E8F0FE; }
+        .feature-card-icon-purple { background: #F3E8FD; }
+        .feature-card-icon-teal { background: #E0F7F5; }
+
+        .feature-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; color: var(--dark-text); }
+        .feature-card p { font-size: 15px; line-height: 1.6; color: var(--body-text); }
+
+        /* Mini WhatsApp mockup inside feature card */
+        .mini-mockup { background: #E5DDD5; border-radius: 12px; overflow: hidden; margin-top: 20px; }
+        .mini-mockup-header {
+            background: var(--green); color: white;
+            padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 800;
+        }
+        .mini-mockup-avatar {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 14px;
+        }
+        .mini-chat { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .mini-msg {
+            max-width: 85%; padding: 8px 12px; border-radius: 8px;
+            font-size: 13px; line-height: 1.4; white-space: pre-line;
+        }
+        .mini-msg-user { background: #DCF8C6; align-self: flex-end; border-radius: 8px 0 8px 8px; color: var(--dark-text); }
+        .mini-msg-obra { background: white; align-self: flex-start; border-radius: 0 8px 8px 8px; color: var(--dark-text); }
+
+        /* Voice note bubble */
+        .voice-bubble {
+            background: #DCF8C6; border-radius: 8px 0 8px 8px;
+            padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+            align-self: flex-end; max-width: 85%; font-size: 13px; color: var(--dark-text);
+        }
+        .voice-waveform { display: flex; align-items: center; gap: 2px; height: 20px; }
+        .voice-bar { width: 3px; background: var(--green); border-radius: 2px; }
+
+        /* Pro Section — Dark Premium */
+        .pro-section {
+            background: linear-gradient(160deg, #0F1923 0%, #1A2A1A 50%, #0F1923 100%);
+            padding: 80px 0; color: white;
+        }
+        .pro-section .section-title { color: white; }
+
+        .pro-grid { display: grid; gap: 24px; margin-top: 48px; }
+
+        @media (min-width: 768px) {
+            .pro-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .pro-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px; padding: 36px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .pro-card:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,213,0,0.4); }
+        .pro-card.featured { border: 2px solid var(--yellow); background: rgba(255,213,0,0.06); }
+
+        .pro-card-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 20px;
+        }
+        .pro-card.featured .pro-card-icon { background: rgba(255,213,0,0.2); }
+
+        .pro-card h3 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 12px; }
+        .pro-card p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
+
+        .pro-tag {
+            display: inline-block; background: var(--yellow); color: #1A1A1A;
+            padding: 4px 14px; border-radius: 9999px;
+            font-size: 12px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 16px;
+        }
+
+        .notification-pill {
+            background: rgba(255,213,0,0.12);
+            border: 1px solid rgba(255,213,0,0.3);
+            border-radius: 12px; padding: 16px 20px;
+            font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.6;
+            margin-top: 8px;
+        }
+        .notification-pill strong { color: var(--yellow); }
+
+        .sheets-row {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px; padding: 10px 14px;
+            margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.85);
+        }
+
         @media (min-width: 768px) {
             .hero h1 {
                 font-size: 72px;
@@ -1504,9 +1637,12 @@ Want me to send this to your customer?</div>
             </div>
         </section>
         
-        <!-- Solution Section - Redesigned with 3 Distinct Cards -->
+        <!-- Solution Section - Core Features -->
         <section class="solution-section" id="features">
             <div class="container">
+                <div class="section-tier-header">
+                    <span class="tier-badge tier-core">⚡ <span data-i18n="solution-tier">Core Features</span></span>
+                </div>
                 <h2 class="section-title" data-i18n="solution-title">Meet Obra</h2>
                 
                 <!-- Card 1: Quoting - WhatsApp style with embedded quote -->
@@ -1601,6 +1737,151 @@ Ready to send?</div>
             </div>
         </section>
         
+        <!-- Smart Features Section -->
+        <section class="smart-section">
+            <div class="container">
+                <div class="section-tier-header">
+                    <span class="tier-badge tier-smart">🧠 <span data-i18n="smart-tier">Smart Features</span></span>
+                </div>
+                <h2 class="section-title" data-i18n="smart-title">The way you naturally work</h2>
+                <div class="feature-grid feature-grid-3">
+
+                    <!-- Voice Messages -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon feature-card-icon-blue">🎤</div>
+                        <h3 data-i18n="smart-voice-h3">Voice Messages</h3>
+                        <p data-i18n="smart-voice-p">Just talk. Send a voice note in English or Spanish. Obra understands and responds — perfect for when your hands are full.</p>
+                        <div class="mini-mockup">
+                            <div class="mini-mockup-header">
+                                <div class="mini-mockup-avatar">🏗️</div>
+                                <span>Obra</span>
+                            </div>
+                            <div class="mini-chat">
+                                <div class="voice-bubble">
+                                    🎤
+                                    <div class="voice-waveform">
+                                        <div class="voice-bar" style="height:6px"></div>
+                                        <div class="voice-bar" style="height:14px"></div>
+                                        <div class="voice-bar" style="height:9px"></div>
+                                        <div class="voice-bar" style="height:18px"></div>
+                                        <div class="voice-bar" style="height:7px"></div>
+                                        <div class="voice-bar" style="height:15px"></div>
+                                        <div class="voice-bar" style="height:10px"></div>
+                                        <div class="voice-bar" style="height:12px"></div>
+                                    </div>
+                                    <span>0:08</span>
+                                </div>
+                                <div class="mini-msg mini-msg-obra" data-i18n="smart-voice-demo">Got it boss 👷 — roofing quote for 1,400 sq ft. Sending now...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory & Learning -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon feature-card-icon-purple">🧠</div>
+                        <h3 data-i18n="smart-memory-h3">Memory & Learning</h3>
+                        <p data-i18n="smart-memory-p">Obra learns your pricing, your clients, your preferences. The more you use it, the smarter it gets. Like an assistant who never forgets.</p>
+                        <div class="mini-mockup">
+                            <div class="mini-mockup-header">
+                                <div class="mini-mockup-avatar">🏗️</div>
+                                <span>Obra</span>
+                            </div>
+                            <div class="mini-chat">
+                                <div class="mini-msg mini-msg-user" data-i18n="smart-memory-user">Quote for 3 bedroom repaint</div>
+                                <div class="mini-msg mini-msg-obra" data-i18n="smart-memory-obra">Last time you charged $1.85/sq ft for this. Want me to use your current rate?</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bilingual -->
+                    <div class="feature-card">
+                        <div class="feature-card-icon feature-card-icon-teal">🌐</div>
+                        <h3 data-i18n="smart-bilingual-h3">English & Spanish</h3>
+                        <p data-i18n="smart-bilingual-p">Text in English, Spanish, or mix both. Obra adapts to you — never to the software. Your quotes can be generated in either language.</p>
+                        <div class="mini-mockup">
+                            <div class="mini-mockup-header">
+                                <div class="mini-mockup-avatar">🏗️</div>
+                                <span>Obra</span>
+                            </div>
+                            <div class="mini-chat">
+                                <div class="mini-msg mini-msg-user">Necesito un quote para el baño de Mrs. Smith</div>
+                                <div class="mini-msg mini-msg-obra">Claro, jefe 💪 — ¿quieres la cotización en inglés para ella o en español para ti?</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Features Section — Dark Premium -->
+        <section class="pro-section">
+            <div class="container">
+                <div class="section-tier-header">
+                    <span class="tier-badge tier-pro">⭐ <span data-i18n="pro-tier">Pro Features</span></span>
+                </div>
+                <h2 class="section-title" data-i18n="pro-title">Grow your business on autopilot</h2>
+                <p style="text-align:center;color:rgba(255,255,255,0.65);font-size:18px;margin-top:-32px;margin-bottom:0;" data-i18n="pro-subtitle">Features that normally cost $2,000+/month in staff — included.</p>
+
+                <div class="pro-grid">
+
+                    <!-- Virtual Receptionist — FEATURED -->
+                    <div class="pro-card featured">
+                        <span class="pro-tag" data-i18n="pro-tag-receptionist">Game Changer</span>
+                        <div class="pro-card-icon">📱</div>
+                        <h3 data-i18n="pro-receptionist-h3">Virtual Receptionist</h3>
+                        <p data-i18n="pro-receptionist-p">Give customers a number to text. Obra answers as YOUR business, collects job details, books appointments, and pings you instantly. Never miss a lead because you were on a ladder.</p>
+                        <div class="notification-pill">
+                            <strong>🔔 New job inquiry</strong><br>
+                            <span data-i18n="pro-receptionist-notif">Maria Garcia texted your number: "Hi, I need a quote for exterior painting." — Obra collected all details and booked her for Thursday 9am.</span>
+                        </div>
+                    </div>
+
+                    <!-- Google Calendar -->
+                    <div class="pro-card">
+                        <div class="pro-card-icon">📅</div>
+                        <h3 data-i18n="pro-calendar-h3">Google Calendar Integration</h3>
+                        <p data-i18n="pro-calendar-p">Obra manages your schedule. Book jobs, set follow-up reminders, get morning briefings. Customers request time slots — Obra checks your calendar and confirms.</p>
+                        <div class="notification-pill">
+                            <strong>☀️ <span data-i18n="pro-calendar-brief">Morning briefing</span></strong><br>
+                            <span data-i18n="pro-calendar-notif">Today: Garcia job 9am, Johnson quote at 2pm. Tomorrow: Martinez tile starts. 2 leads need follow-up.</span>
+                        </div>
+                    </div>
+
+                    <!-- Google Sheets -->
+                    <div class="pro-card">
+                        <div class="pro-card-icon">📊</div>
+                        <h3 data-i18n="pro-sheets-h3">Google Sheets Auto-Sync</h3>
+                        <p data-i18n="pro-sheets-p">Every expense, quote, and lead is automatically logged to your own Google Sheet. Share it with your bookkeeper or CPA — they'll always have the latest numbers.</p>
+                        <div class="sheets-row">
+                            <span>📄</span>
+                            <span data-i18n="pro-sheets-row1">Obra_Expenses_2026.xlsx — Updated just now</span>
+                        </div>
+                        <div class="sheets-row">
+                            <span>📋</span>
+                            <span data-i18n="pro-sheets-row2">Obra_Quotes_2026.xlsx — 47 quotes synced</span>
+                        </div>
+                        <div class="sheets-row">
+                            <span>🤝</span>
+                            <span data-i18n="pro-sheets-row3">Shared with: accountant@cpa.com ✅</span>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Expense Reports -->
+                    <div class="pro-card">
+                        <div class="pro-card-icon">📈</div>
+                        <h3 data-i18n="pro-reports-h3">Weekly Expense Summaries</h3>
+                        <p data-i18n="pro-reports-p">Every week, Obra sends you a full breakdown of expenses — categorized, totaled, and ready for your CPA. No spreadsheets to build. No receipts to hunt down.</p>
+                        <div class="notification-pill">
+                            <strong data-i18n="pro-reports-week">📊 Your Week (Feb 10–16)</strong><br>
+                            <span data-i18n="pro-reports-breakdown">Materials: $1,847 · Fuel: $312 · Tools: $189 · Other: $94<br><strong>Total: $2,442</strong> · Under budget ✅</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- How It Works -->
         <section class="how-it-works" id="how-it-works">
             <div class="container">
@@ -1980,34 +2261,48 @@ Ready to send?</div>
                     
                     <ul class="features-list">
                         <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="pricing-feature-1">Unlimited quotes</span>
                         </li>
                         <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="pricing-feature-2">Receipt tracking & expense management</span>
                         </li>
                         <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="pricing-feature-3">Lead management & follow-ups</span>
                         </li>
                         <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="pricing-feature-4">Bilingual (English & Spanish)</span>
                         </li>
                         <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="pricing-feature-5">Works in WhatsApp — no new apps</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-6">Voice message support (English & Spanish)</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-7">Memory & Learning — gets smarter every job</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-8">Google Sheets auto-sync</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-9">Weekly expense summaries</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-10">Virtual Receptionist</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span data-i18n="pricing-feature-11">Google Calendar integration</span>
                         </li>
                     </ul>
                     
@@ -2217,6 +2512,38 @@ Ready to send?</div>
             'problem-3-h3': 'You thought about hiring help. Then you saw the price tag.',
             'problem-3-p': '$2,000/month for a bookkeeper. $3,000 for an assistant. Meanwhile, you\'re doing it all yourself.',
             'solution-title': 'Meet Obra',
+            'solution-tier': 'Core Features',
+            'smart-tier': 'Smart Features',
+            'smart-title': 'The way you naturally work',
+            'smart-voice-h3': 'Voice Messages',
+            'smart-voice-p': 'Just talk. Send a voice note in English or Spanish. Obra understands and responds — perfect for when your hands are full.',
+            'smart-voice-demo': 'Got it boss 👷 — roofing quote for 1,400 sq ft. Sending now...',
+            'smart-memory-h3': 'Memory & Learning',
+            'smart-memory-p': 'Obra learns your pricing, your clients, your preferences. The more you use it, the smarter it gets. Like an assistant who never forgets.',
+            'smart-memory-user': 'Quote for 3 bedroom repaint',
+            'smart-memory-obra': 'Last time you charged $1.85/sq ft for this. Want me to use your current rate?',
+            'smart-bilingual-h3': 'English & Spanish',
+            'smart-bilingual-p': 'Text in English, Spanish, or mix both. Obra adapts to you — never to the software. Quotes can be generated in either language.',
+            'pro-tier': 'Pro Features',
+            'pro-title': 'Grow your business on autopilot',
+            'pro-subtitle': 'Features that normally cost $2,000+/month in staff — included.',
+            'pro-tag-receptionist': 'Game Changer',
+            'pro-receptionist-h3': 'Virtual Receptionist',
+            'pro-receptionist-p': 'Give customers a number to text. Obra answers as YOUR business, collects job details, books appointments, and pings you instantly. Never miss a lead because you were on a ladder.',
+            'pro-receptionist-notif': 'Maria Garcia texted your number: "Hi, I need a quote for exterior painting." — Obra collected all details and booked her for Thursday 9am.',
+            'pro-calendar-h3': 'Google Calendar Integration',
+            'pro-calendar-p': 'Obra manages your schedule. Book jobs, set follow-up reminders, get morning briefings. Customers request time slots — Obra checks your calendar and confirms.',
+            'pro-calendar-brief': 'Morning briefing',
+            'pro-calendar-notif': 'Today: Garcia job 9am, Johnson quote at 2pm. Tomorrow: Martinez tile starts. 2 leads need follow-up.',
+            'pro-sheets-h3': 'Google Sheets Auto-Sync',
+            'pro-sheets-p': 'Every expense, quote, and lead is automatically logged to your own Google Sheet. Share it with your bookkeeper or CPA — they\'ll always have the latest numbers.',
+            'pro-sheets-row1': 'Obra_Expenses_2026.xlsx — Updated just now',
+            'pro-sheets-row2': 'Obra_Quotes_2026.xlsx — 47 quotes synced',
+            'pro-sheets-row3': 'Shared with: accountant@cpa.com ✅',
+            'pro-reports-h3': 'Weekly Expense Summaries',
+            'pro-reports-p': 'Every week, Obra sends you a full breakdown of expenses — categorized, totaled, and ready for your CPA. No spreadsheets to build. No receipts to hunt down.',
+            'pro-reports-week': '📊 Your Week (Feb 10–16)',
+            'pro-reports-breakdown': 'Materials: $1,847 · Fuel: $312 · Tools: $189 · Other: $94<br><strong>Total: $2,442</strong> · Under budget ✅',
             'feature-quotes': '60-Second Quotes',
             'feature-receipts': 'Snap & Track Receipts',
             'feature-leads': 'Never Miss a Lead',
@@ -2311,6 +2638,12 @@ Ready to send?</div>
             'pricing-feature-3': 'Lead management & follow-ups',
             'pricing-feature-4': 'Bilingual (English & Spanish)',
             'pricing-feature-5': 'Works in WhatsApp — no new apps',
+            'pricing-feature-6': 'Voice message support (English & Spanish)',
+            'pricing-feature-7': 'Memory & Learning — gets smarter every job',
+            'pricing-feature-8': 'Google Sheets auto-sync',
+            'pricing-feature-9': 'Weekly expense summaries',
+            'pricing-feature-10': 'Virtual Receptionist',
+            'pricing-feature-11': 'Google Calendar integration',
             'comparison-vs': 'Office Help',
             'comparison-available': 'Available 24/7',
             'comparison-hours': 'Limited hours',
@@ -2352,6 +2685,38 @@ Ready to send?</div>
             'problem-3-h3': 'Pensaste en contratar ayuda. Luego viste el precio.',
             'problem-3-p': '$2,000/mes por un contador. $3,000 por un asistente. Mientras tanto, lo haces todo tú.',
             'solution-title': 'Conoce a Obra',
+            'solution-tier': 'Funciones Principales',
+            'smart-tier': 'Funciones Inteligentes',
+            'smart-title': 'La forma en que tú naturalmente trabajas',
+            'smart-voice-h3': 'Mensajes de Voz',
+            'smart-voice-p': 'Solo habla. Envía una nota de voz en inglés o español. Obra entiende y responde — perfecto para cuando tienes las manos ocupadas.',
+            'smart-voice-demo': 'Entendido jefe 👷 — cotización de techo para 1,400 pies². Enviando ahora...',
+            'smart-memory-h3': 'Memoria y Aprendizaje',
+            'smart-memory-p': 'Obra aprende tus precios, tus clientes, tus preferencias. Entre más la uses, más inteligente se vuelve. Como un asistente que nunca olvida.',
+            'smart-memory-user': 'Cotización para repintar 3 recámaras',
+            'smart-memory-obra': 'La última vez cobraste $1.85/pies² para esto. ¿Quieres usar tu tarifa actual?',
+            'smart-bilingual-h3': 'Inglés y Español',
+            'smart-bilingual-p': 'Escribe en inglés, español, o mezcla ambos. Obra se adapta a ti — nunca al software. Las cotizaciones se pueden generar en cualquier idioma.',
+            'pro-tier': 'Funciones Pro',
+            'pro-title': 'Haz crecer tu negocio en piloto automático',
+            'pro-subtitle': 'Funciones que normalmente cuestan $2,000+/mes en personal — incluidas.',
+            'pro-tag-receptionist': 'Lo Cambia Todo',
+            'pro-receptionist-h3': 'Recepcionista Virtual',
+            'pro-receptionist-p': 'Dale a tus clientes un número para textearte. Obra responde como TU negocio, recopila detalles del trabajo, programa citas y te notifica al instante. Nunca pierdas un cliente porque estabas en una escalera.',
+            'pro-receptionist-notif': 'María García le escribió a tu número: "Hola, necesito cotización para pintura exterior." — Obra recopiló todos los detalles y la agendó para el jueves a las 9am.',
+            'pro-calendar-h3': 'Integración con Google Calendar',
+            'pro-calendar-p': 'Obra maneja tu agenda. Agenda trabajos, establece recordatorios de seguimiento, recibe briefings matutinos. Los clientes solicitan horarios — Obra revisa tu calendario y confirma.',
+            'pro-calendar-brief': 'Briefing matutino',
+            'pro-calendar-notif': 'Hoy: trabajo García 9am, cotización Johnson a las 2pm. Mañana: empieza azulejo Martínez. 2 clientes necesitan seguimiento.',
+            'pro-sheets-h3': 'Sincronización con Google Sheets',
+            'pro-sheets-p': 'Cada gasto, cotización y cliente se registra automáticamente en tu propio Google Sheet. Comparte el enlace con tu contador o CPA — siempre tendrán los números más actualizados.',
+            'pro-sheets-row1': 'Obra_Gastos_2026.xlsx — Actualizado ahora mismo',
+            'pro-sheets-row2': 'Obra_Cotizaciones_2026.xlsx — 47 cotizaciones sincronizadas',
+            'pro-sheets-row3': 'Compartido con: contador@cpa.com ✅',
+            'pro-reports-h3': 'Resúmenes Semanales de Gastos',
+            'pro-reports-p': 'Cada semana, Obra te envía un desglose completo de gastos — categorizados, totalizados y listos para tu CPA. Sin hojas de cálculo que construir. Sin recibos que buscar.',
+            'pro-reports-week': '📊 Tu Semana (10–16 Feb)',
+            'pro-reports-breakdown': 'Materiales: $1,847 · Gasolina: $312 · Herramientas: $189 · Otros: $94<br><strong>Total: $2,442</strong> · Bajo presupuesto ✅',
             'feature-quotes': 'Cotizaciones en 60 Segundos',
             'feature-receipts': 'Captura y Organiza Recibos',
             'feature-leads': 'Nunca Pierdas un Cliente',
@@ -2446,6 +2811,12 @@ Ready to send?</div>
             'pricing-feature-3': 'Gestión de clientes y seguimientos',
             'pricing-feature-4': 'Bilingüe (inglés y español)',
             'pricing-feature-5': 'Funciona en WhatsApp — sin apps nuevas',
+            'pricing-feature-6': 'Notas de voz (inglés y español)',
+            'pricing-feature-7': 'Memoria y aprendizaje — mejora con cada trabajo',
+            'pricing-feature-8': 'Sincronización automática con Google Sheets',
+            'pricing-feature-9': 'Resúmenes semanales de gastos',
+            'pricing-feature-10': 'Recepcionista Virtual',
+            'pricing-feature-11': 'Integración con Google Calendar',
             'comparison-vs': 'Ayuda de Oficina',
             'comparison-available': 'Disponible 24/7',
             'comparison-hours': 'Horario limitado',
