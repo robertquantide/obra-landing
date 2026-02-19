@@ -132,19 +132,27 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            height: 60px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             z-index: 40;
         }
         
         .logo {
             font-weight: 800;
-            font-size: 26px;
+            font-size: 22px;
             color: var(--green);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .logo-emoji {
+            font-size: 20px;
         }
         
         .nav-links {
@@ -169,32 +177,46 @@
             .nav-links {
                 display: flex;
             }
+            .logo { font-size: 26px; }
+            .logo-emoji { font-size: 24px; }
+            nav { height: 60px; padding: 0 20px; }
         }
         
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-right { gap: 16px; }
         }
         
         .lang-toggle {
             display: flex;
             background: var(--bg-alt);
             border-radius: 24px;
-            padding: 4px;
+            padding: 3px;
             gap: 2px;
         }
         
         .lang-toggle button {
             background: transparent;
             border: none;
-            padding: 6px 14px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--body-text);
+        }
+
+        @media (min-width: 768px) {
+            .lang-toggle button {
+                padding: 6px 14px;
+                font-size: 14px;
+            }
         }
         
         .lang-toggle button.active {
@@ -207,16 +229,25 @@
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 14px;
             border-radius: 24px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             cursor: pointer;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             transition: transform 0.2s;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .nav-cta {
+                padding: 10px 20px;
+                font-size: 14px;
+                gap: 6px;
+            }
         }
         .nav-cta:hover { transform: scale(1.05); }
         
@@ -1512,7 +1543,7 @@
     
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation">
-        <div class="logo"><img src="logo.jpg" alt="Obra" style="height:36px;vertical-align:middle;margin-right:8px;border-radius:4px;">Obra</div>
+        <div class="logo"><img src="logo.jpg" alt="Obra" style="height:28px;vertical-align:middle;margin-right:6px;border-radius:4px;">Obra</div>
         <div class="nav-links">
             <a href="#features" data-i18n="nav-features">Features</a>
             <a href="#how-it-works" data-i18n="nav-how">How It Works</a>
