@@ -1239,6 +1239,7 @@
             font-size: 18px;
             opacity: 0.95;
             font-weight: 500;
+            margin-top: 1.5rem;
         }
         
         /* Footer */
@@ -2437,10 +2438,10 @@ Ready to send?</div>
                     <div class="footer-tagline" data-i18n="footer-tagline">Your back office on WhatsApp</div>
                 </div>
                 <div class="footer-links">
-                    <a href="#" data-i18n="footer-privacy">Privacy Policy</a>
-                    <a href="#" data-i18n="footer-terms">Terms</a>
-                    <a href="#" data-i18n="footer-contact">Contact</a>
-                    <a href="https://quantide.com" data-i18n="footer-about">About Quantide</a>
+                    <a href="#" onclick="document.getElementById('privacy-modal').style.display='flex';return false;" data-i18n="footer-privacy">Privacy Policy</a>
+                    <a href="#" onclick="document.getElementById('terms-modal').style.display='flex';return false;" data-i18n="footer-terms">Terms</a>
+                    <a href="mailto:hello@quantide.xyz" data-i18n="footer-contact">Contact</a>
+                    <a href="https://quantide.xyz" target="_blank" rel="noopener noreferrer" data-i18n="footer-about">About Quantide</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -2982,6 +2983,80 @@ Ready to send?</div>
         } else if (window.scrollY <= heroHeight && fabShown) {
             fab.classList.remove('visible');
             fabShown = false;
+        }
+    });
+    </script>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; overflow-y:auto; padding:1rem; align-items:flex-start; justify-content:center;">
+        <div style="max-width:640px; width:100%; margin:2rem auto; background:#1A1A1A; border:1px solid #2a2a2a; border-radius:12px; padding:2rem; color:#e0e0e0; position:relative;">
+            <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#aaa; font-size:1.75rem; cursor:pointer; line-height:1;" aria-label="Close">&times;</button>
+            <h2 style="color:#fff; margin-top:0; margin-bottom:0.25rem; font-size:1.5rem;">Privacy Policy</h2>
+            <p style="color:#888; font-size:0.85rem; margin-top:0; margin-bottom:1.5rem;">Last updated: February 2026</p>
+
+            <p>Obra ("we", "us") is operated by Quantide. This policy explains how we collect and use your information.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Information We Collect</h3>
+            <p>Your phone number, business name, and messages you send to Obra via WhatsApp. We may also collect job details, expenses, and quotes you share with us.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">How We Use It</h3>
+            <p>To provide the Obra service, improve our AI, and send you business-related notifications.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Data Sharing</h3>
+            <p>We do not sell your data. We may share data with service providers (Google, Twilio, Stripe) necessary to operate Obra.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Data Retention</h3>
+            <p>We retain your data as long as your account is active. You may request deletion by contacting us.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">WhatsApp</h3>
+            <p>By messaging Obra, you agree to receive automated messages from our WhatsApp Business number.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Contact</h3>
+            <p><a href="mailto:hello@quantide.xyz" style="color:#1B8A2A;">hello@quantide.xyz</a> | <a href="https://quantide.xyz" target="_blank" rel="noopener noreferrer" style="color:#1B8A2A;">quantide.xyz</a></p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; overflow-y:auto; padding:1rem; align-items:flex-start; justify-content:center;">
+        <div style="max-width:640px; width:100%; margin:2rem auto; background:#1A1A1A; border:1px solid #2a2a2a; border-radius:12px; padding:2rem; color:#e0e0e0; position:relative;">
+            <button onclick="document.getElementById('terms-modal').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#aaa; font-size:1.75rem; cursor:pointer; line-height:1;" aria-label="Close">&times;</button>
+            <h2 style="color:#fff; margin-top:0; margin-bottom:0.25rem; font-size:1.5rem;">Terms of Service</h2>
+            <p style="color:#888; font-size:0.85rem; margin-top:0; margin-bottom:1.5rem;">Last updated: February 2026</p>
+
+            <p>By using Obra, you agree to these terms.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Service</h3>
+            <p>Obra is an AI-powered business assistant delivered via WhatsApp. It helps contractors manage quotes, expenses, and scheduling.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Use</h3>
+            <p>You must be 18 or older and a legitimate business operator. Do not use Obra for illegal purposes.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Payment</h3>
+            <p>Obra offers a 7-day free trial. After the trial, subscription is $99/month. Cancel anytime.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Limitation of Liability</h3>
+            <p>Obra is provided "as is". Quantide is not liable for any business decisions made based on Obra's outputs.</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Governing Law</h3>
+            <p>These terms are governed by the laws of Turkey (Quantide's jurisdiction).</p>
+
+            <h3 style="color:#1B8A2A; font-size:1rem; margin-bottom:0.5rem;">Contact</h3>
+            <p><a href="mailto:hello@quantide.xyz" style="color:#1B8A2A;">hello@quantide.xyz</a></p>
+        </div>
+    </div>
+
+    <script>
+    // Close modals on backdrop click
+    ['privacy-modal','terms-modal'].forEach(function(id) {
+        document.getElementById(id).addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+    });
+    // Close modals on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('privacy-modal').style.display = 'none';
+            document.getElementById('terms-modal').style.display = 'none';
         }
     });
     </script>
